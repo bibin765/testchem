@@ -170,11 +170,11 @@ const getAllConversations = () => {
 const callOpenAIAPI = async (question, conversationContext) => {
   try {
     // Check if API key is configured
-    const apiKey = process.env.REACT_APP_OPENAI_API_KEY;
+    const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
     if (!apiKey) {
       return {
         success: false,
-        error: 'OpenAI API key not configured. Please add REACT_APP_OPENAI_API_KEY to your .env file.'
+        error: 'OpenAI API key not configured. Please add VITE_OPENAI_API_KEY to your .env file.'
       };
     }
 
@@ -405,6 +405,8 @@ export default function ConversationPage({ onSpeakerChange }) {
     return Array.isArray(saved) ? saved : [];
   });
   const [showRightAssets, setShowRightAssets] = useState(true);
+  const [showAIChatPanel, setShowAIChatPanel] = useState(false);
+  const [aiChatContextIndex, setAiChatContextIndex] = useState(null);
   const [currentNote, setCurrentNote] = useState({ title: '', content: '', timestamp: null, id: null });
   const [editingNoteId, setEditingNoteId] = useState(null);
   const [showNoteInput, setShowNoteInput] = useState(false);
@@ -711,8 +713,11 @@ export default function ConversationPage({ onSpeakerChange }) {
     if (!userQuestion.trim()) return;
     
     setIsLoadingAI(true);
+    
+    // Use the selected message context if available, otherwise use current message
+    const messageContextIndex = aiChatContextIndex !== null ? aiChatContextIndex : currentIndex;
     const allConversations = getAllConversations();
-    const context = getConversationContext(currentIndex, allConversations);
+    const context = getConversationContext(messageContextIndex, allConversations);
     
     const contextString = `
       Current Section: ${context.currentSection}
@@ -730,7 +735,7 @@ export default function ConversationPage({ onSpeakerChange }) {
         id: Date.now(),
         question: userQuestion,
         answer: aiResult.response,
-        contextIndex: currentIndex,
+        contextIndex: messageContextIndex,
         timestamp: new Date().toISOString(),
         sectionTitle: context.currentSection,
         subsectionTitle: context.currentSubsection
@@ -742,16 +747,13 @@ export default function ConversationPage({ onSpeakerChange }) {
       setUserQuestion('');
       setShowQuestionInput(false);
       
-      // Optional: Auto-advance to show the response
-      // This will be handled by the UI to show AI responses inline
-      
     } else {
       // Show error in a more user-friendly way
       const errorResponse = {
         id: Date.now(),
         question: userQuestion,
         answer: `❌ **Error getting AI response:** ${aiResult.error}\n\nPlease check your internet connection and API configuration.`,
-        contextIndex: currentIndex,
+        contextIndex: messageContextIndex,
         timestamp: new Date().toISOString(),
         sectionTitle: context.currentSection,
         subsectionTitle: context.currentSubsection,
@@ -768,6 +770,13 @@ export default function ConversationPage({ onSpeakerChange }) {
 
   const toggleQuestionInput = () => {
     setShowQuestionInput(!showQuestionInput);
+    setUserQuestion('');
+  };
+
+  const openAIChatForMessage = (messageIndex) => {
+    setAiChatContextIndex(messageIndex);
+    setShowAIChatPanel(true);
+    setShowQuestionInput(false);
     setUserQuestion('');
   };
 
@@ -1262,6 +1271,16 @@ export default function ConversationPage({ onSpeakerChange }) {
                 <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11zm-5.5-6L9 18h10l-3.5-4z"/>
               </svg>
             </button>
+
+            <button
+              onClick={() => setShowAIChatPanel(!showAIChatPanel)}
+              className="bg-gray-900 border border-gray-700 text-gray-200 p-2 rounded-lg hover:bg-gray-800 transition-colors shadow-lg"
+              title="Toggle AI chat panel"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+              </svg>
+            </button>
           </div>
         </div>
         
@@ -1702,6 +1721,147 @@ export default function ConversationPage({ onSpeakerChange }) {
         </div>
       </div>
 
+      {/* AI Chat Panel */}
+      <div 
+        data-sidebar
+        className={`fixed top-0 right-0 h-full w-96 bg-gray-950 border-l border-gray-800 z-50 transform transition-transform duration-300 ${
+          showAIChatPanel ? 'translate-x-0' : 'translate-x-full'
+        }`}
+        onWheel={(e) => {
+          // Prevent wheel events from propagating to the main page
+          e.stopPropagation();
+        }}
+      >
+        <div className="p-6 border-b border-gray-800">
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="text-lg font-medium text-white">AI Assistant</h2>
+              {aiChatContextIndex !== null && (
+                <p className="text-sm text-gray-400 mt-1">
+                  Discussing: {dialogue[aiChatContextIndex]?.speaker === "Teacher" ? "Instructor" : "Student"} message
+                </p>
+              )}
+            </div>
+            <button
+              onClick={() => {
+                setShowAIChatPanel(false);
+                setAiChatContextIndex(null);
+              }}
+              className="text-gray-400 hover:text-white"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+              </svg>
+            </button>
+          </div>
+          {aiChatContextIndex === null && (
+            <p className="text-sm text-gray-400 mt-1">Ask questions about the current topic</p>
+          )}
+        </div>
+        
+        <div className="flex-1 flex flex-col" style={{ maxHeight: 'calc(100vh - 80px)' }}>
+          {/* AI Chat Messages */}
+          <div className="flex-1 overflow-y-auto p-4 space-y-4">
+            {(() => {
+              // Filter AI responses by the selected message context
+              const filteredResponses = aiChatContextIndex !== null 
+                ? aiResponses.filter(response => response.contextIndex === aiChatContextIndex)
+                : aiResponses;
+              
+              if (filteredResponses.length === 0) {
+                return (
+                  <div className="flex flex-col items-center justify-center h-64 text-center">
+                    <div className="w-16 h-16 bg-gray-800/50 rounded-full flex items-center justify-center mb-4">
+                      <svg className="w-8 h-8 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+                      </svg>
+                    </div>
+                    <p className="text-gray-400 font-medium">
+                      {aiChatContextIndex !== null ? 'No questions asked about this message yet' : 'No AI conversations yet'}
+                    </p>
+                    <p className="text-sm text-gray-500 mt-1">
+                      {aiChatContextIndex !== null ? 'Ask your first question about this message below' : 'Ask your first question below'}
+                    </p>
+                  </div>
+                );
+              }
+              
+              return filteredResponses.map((response) => (
+                <div key={response.id} className="space-y-3">
+                  {/* User Question */}
+                  <div className="flex justify-end">
+                    <div className="max-w-xs bg-blue-600 text-white p-3 rounded-lg rounded-br-sm">
+                      <p className="text-sm">{response.question}</p>
+                    </div>
+                  </div>
+                  
+                  {/* AI Response */}
+                  <div className="flex justify-start">
+                    <div className={`max-w-xs p-3 rounded-lg rounded-bl-sm ${
+                      response.isError 
+                        ? 'bg-red-600 text-white' 
+                        : 'bg-gray-700 text-gray-100'
+                    }`}>
+                      <p className="text-sm whitespace-pre-wrap">{response.answer}</p>
+                    </div>
+                  </div>
+                </div>
+              ));
+            })()}
+          </div>
+
+          {/* Question Input */}
+          <div className="p-4 border-t border-gray-800">
+            {showQuestionInput ? (
+              <div className="space-y-3">
+                <textarea
+                  value={userQuestion}
+                  onChange={(e) => setUserQuestion(e.target.value)}
+                  placeholder="Ask anything about this topic..."
+                  className="w-full bg-gray-800/50 border border-gray-600 rounded-lg p-3 text-white placeholder-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  rows={3}
+                />
+                <div className="flex gap-2">
+                  <button
+                    onClick={toggleQuestionInput}
+                    className="px-4 py-2 bg-gray-700 text-gray-300 rounded-lg hover:bg-gray-600 transition-colors"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    onClick={handleQuestionSubmit}
+                    disabled={!userQuestion.trim() || isLoadingAI}
+                    className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+                  >
+                    {isLoadingAI ? (
+                      <>
+                        <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Thinking...
+                      </>
+                    ) : (
+                      'Send'
+                    )}
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <button
+                onClick={toggleQuestionInput}
+                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-3 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all flex items-center justify-center gap-2 font-medium"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+                </svg>
+                Ask AI Assistant
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
+
       {/* Right Stats Panel */}
       <div 
         data-sidebar
@@ -2083,6 +2243,20 @@ export default function ConversationPage({ onSpeakerChange }) {
                           <div className="absolute -right-2 bottom-0 text-6xl text-emerald-400/30 font-serif leading-none transform rotate-180">"</div>
                         </blockquote>
                         
+                        {/* Ask Question Button */}
+                        <div className="mt-4 flex justify-end">
+                          <button
+                            onClick={() => openAIChatForMessage(currentIndex)}
+                            className="group flex items-center gap-2 px-4 py-2 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 hover:border-blue-400/50 text-blue-300 hover:text-blue-200 rounded-lg transition-all duration-200 text-sm font-medium"
+                            title="Ask a question about this message"
+                          >
+                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+                            </svg>
+                            Ask Question
+                          </button>
+                        </div>
+                        
                       </div>
                     </div>
                   </div>
@@ -2111,180 +2285,27 @@ export default function ConversationPage({ onSpeakerChange }) {
                           <div className="absolute -right-2 bottom-0 text-6xl text-emerald-400/30 font-serif leading-none transform rotate-180">"</div>
                         </blockquote>
                         
+                        {/* Ask Question Button */}
+                        <div className="mt-4 flex justify-end">
+                          <button
+                            onClick={() => openAIChatForMessage(currentIndex)}
+                            className="group flex items-center gap-2 px-4 py-2 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 hover:border-blue-400/50 text-blue-300 hover:text-blue-200 rounded-lg transition-all duration-200 text-sm font-medium"
+                            title="Ask a question about this message"
+                          >
+                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+                            </svg>
+                            Ask Question
+                          </button>
+                        </div>
+                        
                       </div>
                     </div>
                   </div>
                 )}
               </div>
 
-              {/* AI Responses Section */}
-              {aiResponses
-                .filter(response => response.contextIndex === currentIndex)
-                .map((response) => (
-                  <div key={response.id} className="mt-6 transition-all duration-500 ease-out">
-                    {/* User Question */}
-                    <div className="flex justify-end mb-4">
-                      <div className="max-w-xl w-full">
-                        <div className="bg-gradient-to-br from-blue-900/50 to-indigo-900/50 backdrop-blur-sm border-r-4 border-blue-400 rounded-l-2xl p-4 shadow-xl">
-                          <div className="flex items-center gap-3 mb-3 justify-end">
-                            <div>
-                              <span className="text-xs font-semibold text-blue-300 uppercase tracking-wider">
-                                Your Question
-                              </span>
-                            </div>
-                            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center shadow-lg">
-                              <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                              </svg>
-                            </div>
-                          </div>
-                          <p className="text-lg text-gray-100 leading-relaxed font-medium italic pr-4">
-                            {response.question}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* AI Answer */}
-                    <div className="flex justify-start">
-                      <div className="max-w-2xl w-full">
-                        <div className={`backdrop-blur-sm border-l-4 rounded-r-2xl p-6 shadow-xl ${
-                          response.isError 
-                            ? 'bg-gradient-to-br from-red-900/50 to-orange-900/50 border-red-400'
-                            : 'bg-gradient-to-br from-purple-900/50 to-pink-900/50 border-purple-400'
-                        }`}>
-                          <div className="flex items-center gap-4 mb-4">
-                            <div className={`w-10 h-10 rounded-full flex items-center justify-center shadow-lg ${
-                              response.isError
-                                ? 'bg-gradient-to-br from-red-400 to-orange-500'
-                                : 'bg-gradient-to-br from-purple-400 to-pink-500'
-                            }`}>
-                              <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                {response.isError ? (
-                                  <path d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
-                                ) : (
-                                  <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/>
-                                )}
-                              </svg>
-                            </div>
-                            <div>
-                              <span className={`text-sm font-semibold uppercase tracking-wider ${
-                                response.isError ? 'text-red-300' : 'text-purple-300'
-                              }`}>
-                                {response.isError ? 'Error' : 'AI Assistant'}
-                              </span>
-                              <div className={`w-16 h-0.5 mt-1 ${
-                                response.isError 
-                                  ? 'bg-gradient-to-r from-red-400 to-orange-400'
-                                  : 'bg-gradient-to-r from-purple-400 to-pink-400'
-                              }`}></div>
-                            </div>
-                          </div>
-                          <div className="text-lg text-gray-100 leading-relaxed font-medium pl-4">
-                            {response.answer.split('\n').map((paragraph, idx) => (
-                              <p key={idx} className={idx > 0 ? 'mt-4' : ''}>
-                                {paragraph}
-                              </p>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
 
-              {/* Question Input Interface */}
-              <div className="mt-4 flex justify-center">
-                <div className="w-full max-w-2xl">
-                  {showQuestionInput ? (
-                    <div className="bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-sm border border-gray-700 rounded-2xl p-6 shadow-xl">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center shadow-lg">
-                          <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                          </svg>
-                        </div>
-                        <span className="text-sm font-semibold text-green-300 uppercase tracking-wider">
-                          Ask a Question
-                        </span>
-                        <button
-                          onClick={toggleQuestionInput}
-                          className="ml-auto text-gray-400 hover:text-white transition-colors"
-                        >
-                          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-                          </svg>
-                        </button>
-                      </div>
-                      <textarea
-                        value={userQuestion}
-                        onChange={(e) => setUserQuestion(e.target.value)}
-                        placeholder="Ask anything about this topic or the chemistry concepts we're discussing..."
-                        className="w-full bg-gray-800/50 border border-gray-600 rounded-lg p-4 text-white placeholder-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                        rows={4}
-                      />
-                      <div className="flex justify-between items-center mt-4">
-                        <span className="text-xs text-gray-500">
-                          Your question will be sent to AI with context from the current conversation
-                        </span>
-                        <div className="flex gap-2">
-                          <button
-                            onClick={toggleQuestionInput}
-                            className="px-4 py-2 text-gray-400 hover:text-white transition-colors"
-                          >
-                            Cancel
-                          </button>
-                          <button
-                            onClick={handleQuestionSubmit}
-                            disabled={!userQuestion.trim() || isLoadingAI}
-                            className="px-6 py-2 bg-gradient-to-r from-green-500 to-blue-600 text-white rounded-lg hover:from-green-600 hover:to-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2"
-                          >
-                            {isLoadingAI ? (
-                              <>
-                                <svg className="w-4 h-4 animate-spin" fill="currentColor" viewBox="0 0 24 24">
-                                  <path d="M12,4a8,8,0,0,1,7.89,6.7A1.53,1.53,0,0,0,21.38,12h0a1.5,1.5,0,0,0,1.48-1.75,11,11,0,0,0-21.72,0A1.5,1.5,0,0,0,2.62,12h0a1.53,1.53,0,0,0,1.49-1.3A8,8,0,0,1,12,4Z"/>
-                                </svg>
-                                Thinking...
-                              </>
-                            ) : (
-                              'Ask AI'
-                            )}
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="flex justify-center">
-                      <button
-                        onClick={toggleQuestionInput}
-                        className="group relative p-3 bg-gradient-to-br from-green-400/20 to-blue-500/20 border border-green-400/30 rounded-full hover:from-green-400/30 hover:to-blue-500/30 hover:border-green-400/50 hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl"
-                        title="Ask a question about this topic"
-                      >
-                        {/* Cute chatbot icon */}
-                        <svg className="w-6 h-6 text-green-300 group-hover:text-green-200 transition-colors" fill="currentColor" viewBox="0 0 24 24">
-                          {/* Robot head */}
-                          <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2Z"/>
-                          {/* Robot body */}
-                          <path d="M21 9V7C21 5.9 20.1 5 19 5H5C3.9 5 3 5.9 3 7V9C3 10.1 3.9 11 5 11V17C5 18.1 5.9 19 7 19H9V21H11V19H13V21H15V19H17C18.1 19 19 18.1 19 17V11C20.1 11 21 10.1 21 9ZM19 9H5V7H19V9Z"/>
-                          {/* Eyes */}
-                          <circle cx="9" cy="9" r="1"/>
-                          <circle cx="15" cy="9" r="1"/>
-                          {/* Mouth */}
-                          <path d="M9 13H15V15H9V13Z"/>
-                        </svg>
-                        
-                        {/* Floating tooltip on hover */}
-                        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
-                          Ask a question
-                        </div>
-                        
-                        {/* Subtle pulsing animation */}
-                        <div className="absolute inset-0 rounded-full bg-green-400/10 animate-pulse group-hover:animate-none"></div>
-                      </button>
-                    </div>
-                  )}
-                </div>
-              </div>
 
               {/* Subtle preview of next message to encourage continuous flow */}
               {currentIndex < dialogue.length - 1 && (

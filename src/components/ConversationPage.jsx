@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import ReactMarkdown from 'react-markdown';
 import ThreeBackground from "./ThreeBackground";
 
 const courseData = [
@@ -1797,12 +1798,12 @@ export default function ConversationPage({ onSpeakerChange }) {
                   
                   {/* AI Response */}
                   <div className="flex justify-start">
-                    <div className={`max-w-xs p-3 rounded-lg rounded-bl-sm ${
-                      response.isError 
-                        ? 'bg-red-600 text-white' 
-                        : 'bg-gray-700 text-gray-100'
-                    }`}>
-                      <p className="text-sm whitespace-pre-wrap">{response.answer}</p>
+                    <div className="max-w-xs p-3 rounded-lg rounded-bl-sm ">
+                      <div className="flex justify-start">
+  <div className="max-w-xs p-3 rounded-lg rounded-bl-sm ">
+    <ReactMarkdown >{response.answer}</ReactMarkdown>
+  </div>
+</div>
                     </div>
                   </div>
                 </div>

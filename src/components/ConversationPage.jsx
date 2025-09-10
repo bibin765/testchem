@@ -1060,6 +1060,25 @@ export default function ConversationPage({ onSpeakerChange }) {
   // Keyboard shortcuts for notes
   useEffect(() => {
     const handleKeyDown = (e) => {
+      // Arrow key navigation between conversations
+      if (!e.ctrlKey && !e.metaKey && !e.altKey) {
+        const target = e.target;
+        const tag = target?.tagName?.toLowerCase();
+        const isTyping = tag === 'input' || tag === 'textarea' || target?.isContentEditable;
+        if (!isTyping) {
+          if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            setCurrentIndex((prev) => Math.max(0, prev - 1));
+            return;
+          }
+          if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            setCurrentIndex((prev) => Math.min(dialogue.length - 1, prev + 1));
+            return;
+          }
+        }
+      }
+
       // Ctrl/Cmd + Shift + N to toggle notes panel
       if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'N') {
         e.preventDefault();
@@ -1103,7 +1122,7 @@ export default function ConversationPage({ onSpeakerChange }) {
         {/* Fixed Header */}
         <div className="flex-shrink-0 text-center py-12 px-6">
         <div className="space-y-2">
-          <p className="text-2xl">Some basic concepts of chemistry</p>
+          <p className="text-2xl">Ncert :  Class 11 : Chapter 1: Some basic concepts of chemistry</p>
           <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
             <span>{currentMessage.sectionTitle}</span>
             <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
@@ -2042,7 +2061,7 @@ export default function ConversationPage({ onSpeakerChange }) {
                 {currentMessage.speaker === "Teacher" ? (
                   <div className="flex justify-center">
                     <div className="max-w-2xl w-full">
-                      <div className="bg-gradient-to-br from-emerald-900/50 to-teal-900/50 backdrop-blur-sm border-l-4 border-emerald-400 rounded-r-2xl p-6 shadow-xl">
+                      <div className="bg-gradient-to-br from-red-900/50 to-blue-900/50 backdrop-blur-sm border-l-4 border-emerald-400 rounded-r-2xl p-6 shadow-xl">
                         <div className="flex items-center gap-4 mb-4">
                           <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center shadow-lg">
                             <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">

@@ -1,147 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import ReactMarkdown from 'react-markdown';
 import ThreeBackground from "./ThreeBackground";
+import courseDataJson from "../data/courseData.json";
 
-const courseData = [
-  {
-    id: 1,
-    title: "Introduction to Chemistry",
-    description: "Understanding the basics of chemical science",
-    subsections: [
-      {
-        id: 1,
-        title: "What is Chemistry?",
-        description: "Exploring the definition and scope of chemistry",
-        conversations: [
-          { 
-            speaker: "Teacher", 
-            text: "Welcome to Chemistry! Do you know why we study it?",
-            sidebarContent: [
-              {
-                type: "image",
-                src: "https://images.unsplash.com/photo-1532634922-8fe0b757fb13?w=400&h=300&fit=crop",
-                alt: "Chemistry laboratory with beakers and equipment"
-              }
-            ]
-          },
-          { 
-            speaker: "Learner", 
-            text: "Hmm… maybe to understand what things are made of?",
-            sidebarContent: null
-          },
-          { 
-            speaker: "Teacher", 
-            text: "Exactly. Chemistry is the study of matter — anything that has mass and occupies space.",
-            sidebarContent: [
-              {
-                type: "video",
-                src: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-                title: "What is Matter?"
-              },
-              {
-                type: "image",
-                src: "https://images.unsplash.com/photo-1564325724739-bae0bd08762c?w=400&h=300&fit=crop",
-                alt: "Different states of matter - solid, liquid, gas"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        id: 2,
-        title: "Applications of Chemistry",
-        description: "How chemistry affects our daily lives",
-        conversations: [
-          { 
-            speaker: "Learner", 
-            text: "So literally everything around me is chemistry?",
-            sidebarContent: null
-          },
-          { 
-            speaker: "Teacher", 
-            text: "Yes, from the air you breathe to the food you eat — it's all chemistry.",
-            sidebarContent: [
-              {
-                type: "quiz",
-                question: "Which of these is NOT an example of matter?",
-                options: ["Water", "Air", "Light", "Wood"],
-                correctAnswer: 2,
-                explanation: "Light is energy, not matter. Matter has mass and occupies space."
-              },
-              {
-                type: "quiz",
-                question: "What are the three main states of matter?",
-                options: ["Solid, Liquid, Gas", "Hot, Cold, Warm", "Big, Medium, Small", "Fast, Medium, Slow"],
-                correctAnswer: 0,
-                explanation: "The three main states of matter are solid, liquid, and gas, each with different molecular arrangements."
-              },
-              {
-                type: "image",
-                src: "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&h=300&fit=crop",
-                alt: "Examples of matter in daily life - food, water, air"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    id: 2,
-    title: "Atomic Structure",
-    description: "Understanding atoms and their components",
-    subsections: [
-      {
-        id: 1,
-        title: "What are Atoms?",
-        description: "Basic building blocks of matter",
-        conversations: [
-          { 
-            speaker: "Teacher", 
-            text: "Now let's explore atoms. What do you think atoms are?",
-            sidebarContent: [
-              {
-                type: "image",
-                src: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=300&fit=crop",
-                alt: "Atomic structure diagram"
-              }
-            ]
-          },
-          { 
-            speaker: "Learner", 
-            text: "Are they the smallest particles that make up everything?",
-            sidebarContent: null
-          }
-        ]
-      },
-      {
-        id: 2,
-        title: "Subatomic Particles",
-        description: "Protons, neutrons, and electrons",
-        conversations: [
-          { 
-            speaker: "Teacher", 
-            text: "Atoms are made of even smaller particles. Can you name any?",
-            sidebarContent: [
-              {
-                type: "quiz",
-                question: "Which subatomic particle has a positive charge?",
-                options: ["Electron", "Neutron", "Proton", "Photon"],
-                correctAnswer: 2,
-                explanation: "Protons have a positive charge and are found in the nucleus."
-              },
-              {
-                type: "video",
-                src: "https://www.youtube.com/embed/yQP4UJhNn0I",
-                title: "Introduction to Subatomic Particles"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  }
-];
+const courseData = courseDataJson.sections;
+const courseConfig = courseDataJson.config;
+const resourcesData = courseDataJson.resources;
 
 // Flatten the data for navigation
 const getAllConversations = () => {
@@ -238,101 +102,13 @@ const getConversationContext = (currentIndex, allConversations) => {
 
 const dialogue = getAllConversations();
 
-// Resources data structure
-const resourcesData = [
-  {
-    sectionId: 1,
-    sectionTitle: "Introduction to Chemistry",
-    resources: [
-      {
-        id: 1,
-        type: "flashcards",
-        title: "Chemistry Basics Flashcards",
-        description: "Key concepts and definitions",
-        fileSize: "2.5 MB",
-        format: "PDF",
-        downloadUrl: "#"
-      },
-      {
-        id: 2,
-        type: "worksheet",
-        title: "Matter Classification Worksheet",
-        description: "Practice exercises on states of matter",
-        fileSize: "1.2 MB",
-        format: "PDF",
-        downloadUrl: "#"
-      },
-      {
-        id: 3,
-        type: "report",
-        title: "Chemistry in Daily Life Report",
-        description: "Research template and examples",
-        fileSize: "3.8 MB",
-        format: "DOCX",
-        downloadUrl: "#"
-      },
-      {
-        id: 4,
-        type: "video",
-        title: "Lab Safety Video Guide",
-        description: "Essential safety procedures",
-        fileSize: "45 MB",
-        format: "MP4",
-        downloadUrl: "#"
-      }
-    ]
-  },
-  {
-    sectionId: 2,
-    sectionTitle: "Atomic Structure",
-    resources: [
-      {
-        id: 5,
-        type: "flashcards",
-        title: "Atomic Structure Flashcards",
-        description: "Protons, neutrons, electrons",
-        fileSize: "1.8 MB",
-        format: "PDF",
-        downloadUrl: "#"
-      },
-      {
-        id: 6,
-        type: "worksheet",
-        title: "Electron Configuration Practice",
-        description: "Orbital diagrams and electron arrangements",
-        fileSize: "2.1 MB",
-        format: "PDF",
-        downloadUrl: "#"
-      },
-      {
-        id: 7,
-        type: "report",
-        title: "Atomic Model Evolution Report",
-        description: "Historical development of atomic theory",
-        fileSize: "4.2 MB",
-        format: "DOCX",
-        downloadUrl: "#"
-      },
-      {
-        id: 8,
-        type: "simulation",
-        title: "Interactive Atom Builder",
-        description: "Virtual atomic structure simulator",
-        fileSize: "12 MB",
-        format: "HTML",
-        downloadUrl: "#"
-      }
-    ]
-  }
-];
-
 // Local storage helper functions
 const STORAGE_KEYS = {
-  PROGRESS: 'chemistry_course_progress',
-  STATS: 'chemistry_course_stats',
-  CURRENT_INDEX: 'chemistry_course_current_index',
-  AI_RESPONSES: 'chemistry_course_ai_responses',
-  NOTES: 'chemistry_course_notes'
+  PROGRESS: `${courseConfig.storagePrefix}_progress`,
+  STATS: `${courseConfig.storagePrefix}_stats`,
+  CURRENT_INDEX: `${courseConfig.storagePrefix}_current_index`,
+  AI_RESPONSES: `${courseConfig.storagePrefix}_ai_responses`,
+  NOTES: `${courseConfig.storagePrefix}_notes`
 };
 
 const saveToLocalStorage = (key, data) => {
@@ -399,6 +175,8 @@ export default function ConversationPage({ onSpeakerChange }) {
   const [aiResponses, setAiResponses] = useState(() => 
     loadFromLocalStorage(STORAGE_KEYS.AI_RESPONSES, [])
   );
+  const [showAIChatPanel, setShowAIChatPanel] = useState(false);
+  const [showAIFullscreen, setShowAIFullscreen] = useState(false);
   const [showNotesPanel, setShowNotesPanel] = useState(false);
   const [notesList, setNotesList] = useState(() => {
     const saved = loadFromLocalStorage(STORAGE_KEYS.NOTES, []);
@@ -406,7 +184,6 @@ export default function ConversationPage({ onSpeakerChange }) {
     return Array.isArray(saved) ? saved : [];
   });
   const [showRightAssets, setShowRightAssets] = useState(true);
-  const [showAIChatPanel, setShowAIChatPanel] = useState(false);
   const [aiChatContextIndex, setAiChatContextIndex] = useState(null);
   const [currentNote, setCurrentNote] = useState({ title: '', content: '', timestamp: null, id: null });
   const [editingNoteId, setEditingNoteId] = useState(null);
@@ -779,6 +556,10 @@ export default function ConversationPage({ onSpeakerChange }) {
     setShowAIChatPanel(true);
     setShowQuestionInput(false);
     setUserQuestion('');
+  };
+
+  const handleAIQuestion = () => {
+    handleQuestionSubmit();
   };
 
   // Notes functionality - Multiple Notes System
@@ -1286,16 +1067,16 @@ export default function ConversationPage({ onSpeakerChange }) {
         </div>
         
         <div className="flex-1 flex flex-col min-h-0">
-          <div className="flex-1 overflow-y-auto p-6 scrollbar-hide">
+          <div className="flex-1 p-6 sections-tree-scroll">
             <div className="space-y-1">
               {courseData.map((section, sectionIndex) => (
                 <div key={section.id}>
                   <div className="flex items-center">
                     <button
                       onClick={() => toggleSection(section.id)}
-                      className="flex items-center gap-2 w-full p-2 text-left hover:bg-gray-800 rounded transition-colors duration-150"
+                      className="flex items-start gap-2 w-full p-3 text-left hover:bg-gray-800 rounded transition-colors duration-150"
                     >
-                      <div className="flex items-center justify-center w-4 h-4">
+                      <div className="flex items-center justify-center w-4 h-4 mt-0.5">
                         <svg 
                           className={`w-3 h-3 text-gray-500 transition-transform duration-200 ${
                             expandedSections.has(section.id) ? 'rotate-90' : ''
@@ -1307,15 +1088,15 @@ export default function ConversationPage({ onSpeakerChange }) {
                         </svg>
                       </div>
                       
-                      <div className="w-5 h-5 rounded bg-pink-600 flex items-center justify-center">
+                      <div className="w-5 h-5 rounded bg-pink-600 flex items-center justify-center flex-shrink-0 mt-0.5">
                         <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
                       </div>
                       
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-sm font-medium text-white truncate">{section.title}</h3>
-                        <p className="text-xs text-gray-400 truncate">{section.description}</p>
+                        <h3 className="text-sm font-medium text-white">{section.title}</h3>
+                        <p className="text-xs text-gray-400 leading-tight mt-0.5">{section.description}</p>
                       </div>
                       
                       {dialogue[currentIndex]?.sectionId === section.id && (
@@ -1358,12 +1139,12 @@ export default function ConversationPage({ onSpeakerChange }) {
                               <div className="flex-1 min-w-0">
                                 <div className="flex items-center gap-2">
                                   <span className="text-xs font-mono text-gray-500">{section.id}.{subsection.id}</span>
-                                  <h4 className="text-sm font-medium truncate">{subsection.title}</h4>
+                                  <h4 className="text-sm font-medium">{subsection.title}</h4>
                                   {hasContent && (
                                     <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
                                   )}
                                 </div>
-                                <p className="text-xs text-gray-500 truncate">{subsection.description}</p>
+                                <p className="text-xs text-gray-500 leading-tight mt-0.5">{subsection.description}</p>
                               </div>
                               
                               {isCurrentSubsection && (
@@ -1424,7 +1205,7 @@ export default function ConversationPage({ onSpeakerChange }) {
               </svg>
             </button>
           </div>
-          <p className="text-sm text-gray-400 mt-1">Take notes while learning</p>
+          <p className="text-sm text-gray-400 mt-1">{courseConfig.notesSubtitle}</p>
         </div>
         
         <div className="flex-1 flex flex-col" style={{ maxHeight: 'calc(100vh - 80px)' }}>
@@ -2673,6 +2454,277 @@ export default function ConversationPage({ onSpeakerChange }) {
           </div>
         </div>
       </div>
+
+      {/* AI Chat Panel */}
+      <div 
+        data-sidebar
+        className={`fixed top-0 right-0 h-full w-96 bg-gray-950 border-l border-gray-800 z-50 transform transition-transform duration-300 ${
+          showAIChatPanel ? 'translate-x-0' : 'translate-x-full'
+        }`}
+        onWheel={(e) => {
+          e.stopPropagation();
+        }}
+      >
+        <div className="h-full flex flex-col">
+          {/* Header */}
+          <div className="p-6 border-b border-gray-800">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <h2 className="text-lg font-medium text-white">AI Assistant</h2>
+                <button
+                  onClick={() => setShowAIFullscreen(true)}
+                  className="text-gray-400 hover:text-white transition-colors p-1 rounded hover:bg-gray-800"
+                  title="Open in fullscreen"
+                >
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+                  </svg>
+                </button>
+              </div>
+              <button
+                onClick={() => setShowAIChatPanel(false)}
+                className="text-gray-400 hover:text-white"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                </svg>
+              </button>
+            </div>
+            <p className="text-sm text-gray-400 mt-1">Ask questions about the current topic</p>
+          </div>
+          
+          <div className="flex-1 flex flex-col" style={{ maxHeight: 'calc(100vh - 80px)' }}>
+            {/* AI Chat Messages */}
+            <div className="flex-1 overflow-y-auto p-4 space-y-4">
+              {(() => {
+                // Filter AI responses by the selected message context
+                const currentMessage = dialogue[currentIndex];
+                const contextResponses = aiResponses.filter(response => 
+                  response.contextMessageId === currentIndex
+                );
+
+                if (contextResponses.length === 0) {
+                  return (
+                    <div className="flex flex-col items-center justify-center h-full text-center">
+                      <div className="w-16 h-16 bg-gray-800/50 rounded-full flex items-center justify-center mb-4">
+                        <svg className="w-8 h-8 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+                        </svg>
+                      </div>
+                      <p className="text-gray-400 font-medium">No questions yet</p>
+                      <p className="text-sm text-gray-500 mt-1">Ask the AI about the current topic</p>
+                    </div>
+                  );
+                }
+
+                return contextResponses.map((response, index) => (
+                  <div key={index} className="space-y-3">
+                    {/* User Question */}
+                    <div className="flex justify-end">
+                      <div className="max-w-xs bg-emerald-600 text-white p-3 rounded-2xl rounded-tr-md">
+                        <p className="text-sm">{response.question}</p>
+                      </div>
+                    </div>
+                    
+                    {/* AI Response */}
+                    <div className="flex justify-start">
+                      <div className="max-w-sm bg-gray-800 text-gray-200 p-3 rounded-2xl rounded-tl-md">
+                        <p className="text-sm">{response.answer}</p>
+                        <p className="text-xs text-gray-500 mt-2">{new Date(response.timestamp).toLocaleTimeString()}</p>
+                      </div>
+                    </div>
+                  </div>
+                ));
+              })()}
+            </div>
+
+            {/* Question Input */}
+            <div className="p-4 border-t border-gray-800">
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  value={userQuestion}
+                  onChange={(e) => setUserQuestion(e.target.value)}
+                  placeholder="Ask about the current topic..."
+                  className="flex-1 bg-gray-800 border border-gray-700 text-white px-4 py-2 rounded-lg focus:outline-none focus:border-emerald-500 text-sm"
+                  onKeyPress={(e) => {
+                    if (e.key === 'Enter' && !isLoadingAI) {
+                      handleAIQuestion();
+                    }
+                  }}
+                  disabled={isLoadingAI}
+                />
+                <button
+                  onClick={handleAIQuestion}
+                  disabled={isLoadingAI || !userQuestion.trim()}
+                  className="bg-emerald-600 hover:bg-emerald-700 disabled:bg-gray-700 disabled:cursor-not-allowed text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium"
+                >
+                  {isLoadingAI ? (
+                    <svg className="w-4 h-4 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                  ) : (
+                    'Ask'
+                  )}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* AI Chat Fullscreen Modal */}
+      {showAIFullscreen && (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[60] flex items-center justify-center p-4">
+          <div className="bg-gray-950 border border-gray-800 rounded-2xl w-full max-w-4xl h-[90vh] flex flex-col overflow-hidden">
+            {/* Fullscreen Header */}
+            <div className="flex items-center justify-between p-6 border-b border-gray-800">
+              <div className="flex items-center gap-3">
+                <h2 className="text-xl font-semibold text-white">AI Assistant</h2>
+                <span className="text-sm text-gray-400">
+                  {dialogue[currentIndex] ? 
+                    `${dialogue[currentIndex].sectionTitle} • ${dialogue[currentIndex].subsectionTitle}` : 
+                    'Current Topic'
+                  }
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => setShowAIFullscreen(false)}
+                  className="text-gray-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800"
+                  title="Close fullscreen"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14 10V7h3V5h-5v5h2zm-4 7h3v2H5v-5h2v3zm2-3.5V17h3v-2h-5v5h2v-3zm4-4.5V5h-2v5h5V7h-3z"/>
+                  </svg>
+                </button>
+                <button
+                  onClick={() => setShowAIFullscreen(false)}
+                  className="text-gray-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            {/* Fullscreen Content */}
+            <div className="flex-1 flex overflow-hidden">
+              {/* Chat Area */}
+              <div className="flex-1 flex flex-col">
+                {/* Messages */}
+                <div className="flex-1 overflow-y-auto p-6 space-y-6">
+                  {(() => {
+                    const currentMessage = dialogue[currentIndex];
+                    const contextResponses = aiResponses.filter(response => 
+                      response.contextMessageId === currentIndex
+                    );
+
+                    if (contextResponses.length === 0) {
+                      return (
+                        <div className="flex flex-col items-center justify-center h-full text-center">
+                          <div className="w-20 h-20 bg-gray-800/50 rounded-full flex items-center justify-center mb-6">
+                            <svg className="w-10 h-10 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+                            </svg>
+                          </div>
+                          <h3 className="text-lg font-medium text-white mb-2">Start a conversation</h3>
+                          <p className="text-gray-400 mb-4">Ask the AI assistant about the current topic or any chemistry concepts</p>
+                          <div className="max-w-md">
+                            <h4 className="text-sm font-medium text-gray-300 mb-2">Example questions:</h4>
+                            <ul className="text-sm text-gray-500 space-y-1 text-left">
+                              <li>• "Can you explain this concept further?"</li>
+                              <li>• "What are some real-world applications?"</li>
+                              <li>• "How does this relate to previous topics?"</li>
+                              <li>• "Can you give me a practice problem?"</li>
+                            </ul>
+                          </div>
+                        </div>
+                      );
+                    }
+
+                    return contextResponses.map((response, index) => (
+                      <div key={index} className="space-y-4">
+                        {/* User Question */}
+                        <div className="flex justify-end">
+                          <div className="max-w-2xl bg-emerald-600 text-white p-4 rounded-2xl rounded-tr-md">
+                            <p className="text-base">{response.question}</p>
+                          </div>
+                        </div>
+                        
+                        {/* AI Response */}
+                        <div className="flex justify-start">
+                          <div className="max-w-3xl bg-gray-800 text-gray-200 p-4 rounded-2xl rounded-tl-md">
+                            <p className="text-base leading-relaxed">{response.answer}</p>
+                            <p className="text-xs text-gray-500 mt-3">{new Date(response.timestamp).toLocaleString()}</p>
+                          </div>
+                        </div>
+                      </div>
+                    ));
+                  })()}
+                </div>
+
+                {/* Fullscreen Input */}
+                <div className="p-6 border-t border-gray-800">
+                  <div className="flex gap-3">
+                    <input
+                      type="text"
+                      value={userQuestion}
+                      onChange={(e) => setUserQuestion(e.target.value)}
+                      placeholder="Ask about the current topic or any chemistry concepts..."
+                      className="flex-1 bg-gray-800 border border-gray-700 text-white px-4 py-3 rounded-xl focus:outline-none focus:border-emerald-500"
+                      onKeyPress={(e) => {
+                        if (e.key === 'Enter' && !isLoadingAI) {
+                          handleAIQuestion();
+                        }
+                      }}
+                      disabled={isLoadingAI}
+                    />
+                    <button
+                      onClick={handleAIQuestion}
+                      disabled={isLoadingAI || !userQuestion.trim()}
+                      className="bg-emerald-600 hover:bg-emerald-700 disabled:bg-gray-700 disabled:cursor-not-allowed text-white px-6 py-3 rounded-xl transition-colors font-medium"
+                    >
+                      {isLoadingAI ? (
+                        <div className="flex items-center gap-2">
+                          <svg className="w-4 h-4 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                          </svg>
+                          Thinking...
+                        </div>
+                      ) : (
+                        'Send'
+                      )}
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Context Sidebar */}
+              <div className="w-80 border-l border-gray-800 p-6 bg-gray-900/30">
+                <h3 className="font-medium text-white mb-4">Current Context</h3>
+                {dialogue[currentIndex] && (
+                  <div className="space-y-3">
+                    <div className="bg-gray-800/50 rounded-lg p-3">
+                      <p className="text-xs font-medium text-emerald-400 mb-1">SECTION</p>
+                      <p className="text-sm text-white">{dialogue[currentIndex].sectionTitle}</p>
+                    </div>
+                    <div className="bg-gray-800/50 rounded-lg p-3">
+                      <p className="text-xs font-medium text-blue-400 mb-1">SUBSECTION</p>
+                      <p className="text-sm text-white">{dialogue[currentIndex].subsectionTitle}</p>
+                    </div>
+                    <div className="bg-gray-800/50 rounded-lg p-3">
+                      <p className="text-xs font-medium text-purple-400 mb-1">CURRENT MESSAGE</p>
+                      <p className="text-sm text-white line-clamp-3">{dialogue[currentIndex].text}</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

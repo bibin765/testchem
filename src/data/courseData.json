@@ -1,0 +1,1064 @@
+{
+  "courseTitle": "Some Basic Concepts of Chemistry",
+  "courseDescription": "Understanding the fundamentals of chemistry including matter, atoms, and chemical calculations",
+  "sections": [
+    {
+      "id": 1,
+      "title": "Development of Chemistry",
+      "description": "Understanding how chemistry evolved from ancient practices to modern science",
+      "subsections": [
+        {
+          "id": 1,
+          "title": "From Alchemy to Modern Chemistry",
+          "description": "The transition from mystical practices to scientific methods",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Imagine this—you open a jar of milk in the morning and realize it has turned into curd. Later, you notice an old iron gate covered in rust. These everyday changes may look ordinary, but they are actually chemistry in action.",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1532634922-8fe0b757fb13?w=400&h=300&fit=crop",
+                  "alt": "Chemistry laboratory with beakers and equipment"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "Wait, so chemistry is basically about changes in substances?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Exactly. Chemistry is the branch of science that studies the preparation, properties, structure, and reactions of materials. It explains why milk becomes curd, why sugarcane juice turns into vinegar when left for too long, or why iron rusts.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "But was chemistry always studied this way?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Not really. In ancient times, people weren't studying chemistry for the sake of knowledge. They were chasing two legendary goals: The Philosopher's Stone—a mythical substance that could turn base metals like copper into gold, and The Elixir of Life—a magical potion to grant immortality.",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
+                  "alt": "Ancient alchemy symbols and equipment"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "Oh! So early chemistry was more like a mix of science and magic?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Exactly. This practice was called Alchemy. In India, it was known as Rasayan Shastra. Later, another form emerged—Iatrochemistry, which focused on using chemicals for medicine. Between 1300–1600 CE, both of these were active.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "What were the two main goals of ancient alchemists?",
+                  "options": ["Gold and immortality", "Medicine and food", "Weapons and tools", "Art and beauty"],
+                  "correctAnswer": 0,
+                  "explanation": "Alchemists sought the Philosopher's Stone to turn base metals into gold and the Elixir of Life for immortality."
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "And when did modern chemistry begin?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "In the 18th century in Europe. Arab scholars first brought alchemical traditions there, but slowly, careful experimentation and measurement transformed chemistry into the scientific discipline we recognize today. This transition—alchemy to modern chemistry—laid the foundation for everything we'll study in this unit.",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
+                  "alt": "Historical chemistry laboratory"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Contributions of India to Chemistry",
+      "description": "Exploring India's ancient contributions to chemical knowledge",
+      "subsections": [
+        {
+          "id": 1,
+          "title": "Ancient Indian Chemistry",
+          "description": "Chemical practices in ancient Indian civilization",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Did you know that India's connection with chemistry is thousands of years old? Long before modern laboratories, people here were already applying chemical knowledge in daily life.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "Really? Like in what ways?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Archaeological evidence from Harappa and Mohenjodaro shows baked bricks and glazed pottery. That's chemistry! Bricks needed controlled heating, and glazing used mineral oxides to create shine and color.",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=400&h=300&fit=crop",
+                  "alt": "Ancient pottery and bricks from Harappan civilization"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "So pottery wasn't just art, it was early chemical engineering!",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Exactly. They also made gypsum cement—a mix of lime, sand, and calcium carbonate—for construction. The Harappans created faience, a glass-like substance for ornaments.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "That's impressive. What about metals?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Ancient Indians mastered copper, gold, silver, and lead metallurgy. They even strengthened copper by mixing it with tin and arsenic, creating early alloys. There's also evidence of iron smelting, indigenous to India. And think of the Delhi Iron Pillar, still rust-resistant after 1,600 years—it's a metallurgical wonder.",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=400&h=300&fit=crop",
+                  "alt": "Delhi Iron Pillar - ancient metallurgy"
+                },
+                {
+                  "type": "quiz",
+                  "question": "What makes the Delhi Iron Pillar remarkable?",
+                  "options": ["It's rust-resistant after 1600 years", "It's made of pure gold", "It can change colors", "It floats on water"],
+                  "correctAnswer": 0,
+                  "explanation": "The Delhi Iron Pillar demonstrates advanced ancient Indian metallurgy with its remarkable corrosion resistance."
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "Incredible. Did they also know about chemicals for daily use?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Yes. Texts like the Rigveda mention tanning leather and dyeing cotton. Charaka Samhita and Sushruta Samhita describe acids, oxides, and even early forms of sulphuric and nitric acid. Tamil texts talk about fireworks and gunpowder mixtures. Scientists like Nagarjuna wrote Rasratnakar, describing mercury compounds and metal extraction. Another scholar, Chakrapani, is credited with inventing soap using mustard oil and alkalies.",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=300&fit=crop",
+                  "alt": "Ancient Indian manuscripts and texts"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "That's fascinating. Even nanotechnology gets a mention, right?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Yes! Charaka Samhita spoke of reducing metals to extremely fine powders, or bhasmas. Modern research confirms these often contain nanoparticles. Ancient insights were sometimes centuries ahead. These contributions remind us that chemistry's story is global, and India played a major role.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "What are 'bhasmas' in ancient Indian chemistry?",
+                  "options": ["Extremely fine metal powders", "Large metal blocks", "Liquid medicines", "Colored dyes"],
+                  "correctAnswer": 0,
+                  "explanation": "Bhasmas were extremely fine metal powders that modern research shows often contained nanoparticles."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Importance of Chemistry",
+      "description": "Understanding why chemistry is essential in modern world",
+      "subsections": [
+        {
+          "id": 1,
+          "title": "Modern Applications of Chemistry",
+          "description": "Chemistry's role in survival, economy, environment, and technology",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Now that we've seen how chemistry developed, let's ask a simple question: Why is chemistry important today?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "Well… isn't it just about reactions in labs?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "That's a common thought, but chemistry goes way beyond labs. It's deeply connected with our survival, economy, environment, and even technology. Think of food production. Fertilisers and pesticides—developed using chemistry—feed billions. In healthcare, chemistry isolates life-saving drugs from plants and even helps us synthesize them in labs. Medicines like cisplatin and taxol fight cancer, while AZT helps AIDS patients.",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop",
+                  "alt": "Modern pharmaceutical laboratory"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "So, without chemistry, modern medicine wouldn't exist!",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Exactly. Then there's technology. Advances in chemistry gave us superconductors, polymers, optical fibres, and batteries. Every smartphone or laptop owes a debt to chemistry.",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?w=400&h=300&fit=crop",
+                  "alt": "Modern technology devices and batteries"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "I see it now. But what about the environment? Isn't chemistry also blamed for pollution?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "You're right. Chemistry can harm, but it can also heal. For example, scientists developed safer alternatives to CFCs, which were destroying the ozone layer. Yet, big challenges remain—like controlling greenhouse gases such as CO₂ and methane. That's why a country like India needs creative chemists. With our environmental and technological challenges, chemistry plays a central role in shaping the future.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "How can chemistry help the environment?",
+                  "options": ["Developing safer alternatives to harmful chemicals", "Creating more pollution", "Destroying the ozone layer", "Increasing greenhouse gases"],
+                  "correctAnswer": 0,
+                  "explanation": "Chemistry helps develop safer alternatives to harmful substances and solutions for environmental challenges."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Nature of Matter",
+      "description": "Understanding what matter is and its different forms",
+      "subsections": [
+        {
+          "id": 1,
+          "title": "Definition and States of Matter",
+          "description": "Basic concepts about matter and its states",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Let's start simple: What is matter?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "Umm… anything that has weight?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Close! Matter is anything that has mass and occupies space. Think of the chair you're sitting on, the air you're breathing, even your own body. All of it is matter.",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1564325724739-bae0bd08762c?w=400&h=300&fit=crop",
+                  "alt": "Different states of matter - solid, liquid, gas"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "So basically everything around us?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Yes, and even within us. But here's where it gets interesting—matter doesn't exist in just one form. It can be solid, liquid, or gas. In solids, particles are packed tightly, locked in position. That's why solids have a definite shape and volume. In liquids, particles are close but can slide past each other. They have a definite volume, but no fixed shape. They take the shape of the container. In gases, particles are far apart, moving fast and freely. So gases have neither definite shape nor definite volume.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "What are the three main states of matter?",
+                  "options": ["Solid, Liquid, Gas", "Hot, Cold, Warm", "Big, Medium, Small", "Fast, Medium, Slow"],
+                  "correctAnswer": 0,
+                  "explanation": "The three main states of matter are solid, liquid, and gas, each with different particle arrangements."
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "So matter is about arrangement of particles! But can matter change states?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Absolutely. By changing temperature or pressure, solids can become liquids, liquids can become gases, and gases can condense back. Think of water: ice melts to liquid, boils into steam, and condenses back into liquid when cooled. But matter is also classified differently. Broadly, it can be mixtures – made of two or more substances physically combined, like air or tea, or pure substances – made of only one kind of particle.",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=400&h=300&fit=crop",
+                  "alt": "Water in different states - ice, liquid, vapor"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Properties of Matter and Their Measurement",
+      "description": "Understanding how to describe and measure properties of matter",
+      "subsections": [
+        {
+          "id": 1,
+          "title": "Physical and Chemical Properties",
+          "description": "Distinguishing between different types of properties",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Now that we know what matter is, let's ask: How do we describe matter?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "By saying what it looks like? Like its color or smell?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Exactly. Every substance has properties—unique characteristics that make it identifiable. These properties are of two types: Physical properties – things you can measure or observe without changing the substance, like color, melting point, density. Chemical properties – things you see only when a substance undergoes a change, like combustibility, acidity, or reaction with other chemicals.",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1518152006812-edab29b069ac?w=400&h=300&fit=crop",
+                  "alt": "Laboratory equipment for measuring properties"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "So, physical is 'what it is,' and chemical is 'how it behaves when it changes'?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Nicely put. For example, water's boiling point is a physical property, while its ability to decompose into hydrogen and oxygen by electrolysis is a chemical property. To study matter scientifically, we need to measure its properties. Measurement means expressing a property with a number and a unit.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "Which is a chemical property of wood?",
+                  "options": ["Its brown color", "Its combustibility", "Its density", "Its texture"],
+                  "correctAnswer": 1,
+                  "explanation": "Combustibility is a chemical property because it involves a chemical change when wood burns."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "SI System and Units",
+          "description": "Understanding the international system of measurement",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Imagine saying 'the room is 6 meters long' versus just saying 'the room is 6.' Which makes more sense?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "The first one! Because 6 what? 6 inches? 6 feet?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Exactly. The number (6) gives quantity, and the unit (meters) gives meaning. Without units, numbers are useless. Earlier, different regions used different systems—the English system and the Metric system. But in 1960, scientists agreed on a universal system: the SI system (International System of Units).",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
+                  "alt": "Scientific measuring instruments and rulers"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "Why do you think having a universal system is important?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Great question! The SI system is built on seven base units: Length → metre (m), Mass → kilogram (kg), Time → second (s), Electric current → ampere (A), Temperature → kelvin (K), Amount of substance → mole (mol), Luminous intensity → candela (cd). From these, all other units are derived. For example, density is mass divided by volume → kg/m³.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "What is the SI base unit for mass?",
+                  "options": ["Gram", "Pound", "Kilogram", "Ounce"],
+                  "correctAnswer": 2,
+                  "explanation": "Kilogram (kg) is the SI base unit for mass, though grams are commonly used in chemistry labs."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Laws of Chemical Combination",
+      "description": "Understanding the fundamental laws governing chemical reactions",
+      "subsections": [
+        {
+          "id": 1,
+          "title": "Law of Conservation of Mass",
+          "description": "Matter is neither created nor destroyed in chemical reactions",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Let's start with a question. If I burn a piece of wood, where does it go?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "Umm… it turns into ash? And maybe smoke? But a lot of it just 'disappears,' right?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "That's what it looks like. But Antoine Lavoisier, in 1789, proved that matter is neither created nor destroyed in a chemical reaction. The total mass of reactants equals the total mass of products.",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1532634922-8fe0b757fb13?w=400&h=300&fit=crop",
+                  "alt": "Lavoisier's experimental setup"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "So, even the smoke and gases have mass?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Exactly. When wood burns, carbon combines with oxygen in the air to form carbon dioxide, which escapes. If you collected all the gases plus the ash, the total mass would equal the original wood plus oxygen consumed. Let's imagine you take a shiny strip of magnesium and burn it in air. It produces a dazzling white flame and leaves behind a white powder—magnesium oxide.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "If 12 g of magnesium reacts with 8 g of oxygen, how much magnesium oxide forms?",
+                  "options": ["12 g", "8 g", "20 g", "4 g"],
+                  "correctAnswer": 2,
+                  "explanation": "According to conservation of mass, 12 g + 8 g = 20 g of magnesium oxide."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Law of Definite Proportions",
+          "description": "Chemical compounds have fixed ratios of elements by mass",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Next law: Every chemical compound is made up of the same elements in the same fixed ratio by mass.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "So water is always H₂O, right?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Exactly. No matter where you get water from—river, rain, or lab—it always contains hydrogen and oxygen in the ratio 1:8 by mass. Let's look at water. If I combine hydrogen and oxygen in the right proportion, I always get H₂O.",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1564325724739-bae0bd08762c?w=400&h=300&fit=crop",
+                  "alt": "Water molecule structure showing H2O"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "But isn't river water 'impure'?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Good question. Impurities may be there, but the compound water molecules themselves remain H₂O. The ratio inside the molecule never changes. Pure water is always 2 parts hydrogen and 1 part oxygen by atoms, or 1:8 by mass.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "If water is always 1:8 hydrogen to oxygen by mass, how many grams of oxygen are in 90 g of pure water?",
+                  "options": ["10 g", "80 g", "70 g", "20 g"],
+                  "correctAnswer": 1,
+                  "explanation": "In 90 g water: hydrogen = 10 g, oxygen = 80 g (1:8 ratio)."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Dalton's Atomic Theory",
+      "description": "Understanding the foundational theory of atomic structure",
+      "subsections": [
+        {
+          "id": 1,
+          "title": "Atomic Theory Postulates",
+          "description": "Dalton's revolutionary ideas about atoms",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "So far, we've studied the laws of chemical combination—they showed us that matter behaves in very regular ways. But they didn't explain why.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "Right… like why oxygen always combines with hydrogen in the same ratio.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Exactly. That's where John Dalton, in 1808, stepped in. He proposed the Atomic Theory—a way to explain chemical laws by imagining matter is made of tiny, indivisible particles called atoms.",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=300&fit=crop",
+                  "alt": "Dalton's atomic theory diagram"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "Atoms… like the building blocks?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Yes. Dalton pictured atoms as solid, indivisible spheres—like billiard balls. Each element had its own type of atom. Let's go through Dalton's main ideas: Matter is made up of tiny particles called atoms. Atoms of a given element are identical in mass and properties. Atoms of different elements have different masses and properties. Atoms combine in simple whole-number ratios to form compounds. Atoms cannot be created or destroyed in chemical reactions.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "According to Dalton, what happens to atoms in chemical reactions?",
+                  "options": ["They are created", "They are destroyed", "They are rearranged", "They disappear"],
+                  "correctAnswer": 2,
+                  "explanation": "Dalton proposed that atoms are rearranged but neither created nor destroyed in chemical reactions."
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "But wait, teacher… didn't we split atoms in nuclear reactions?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Excellent observation! Yes, modern science has shown atoms can be divided into subatomic particles—protons, neutrons, electrons. Dalton didn't know about those. His model was simple, but it worked for explaining chemical reactions. So Dalton's atoms were the 'why' behind the laws. His theory was revolutionary for its time, but later discoveries refined it.",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
+                  "alt": "Modern atomic structure vs Dalton's billiard ball model"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Atomic and Molecular Masses",
+      "description": "Understanding how to measure and calculate masses of atoms and molecules",
+      "subsections": [
+        {
+          "id": 1,
+          "title": "Atomic Mass Scale",
+          "description": "Relative atomic masses and the carbon-12 standard",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Now that Dalton introduced atoms, we need a way to measure them. But atoms are tiny—far too small to weigh directly.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "So… how do scientists know their masses?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "They created a relative scale. Dalton first suggested comparing atoms by mass. Later, scientists agreed to use the carbon-12 isotope as the standard. On this scale, one atom of carbon-12 is exactly 12 atomic mass units (amu).",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=300&fit=crop",
+                  "alt": "Atomic mass scale diagram"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "So, hydrogen must be lighter than carbon?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Exactly. Hydrogen's atomic mass is about 1 amu, while oxygen is about 16 amu. But here's a twist. Some elements exist as mixtures of isotopes. Take chlorine: it has two isotopes, Cl-35 and Cl-37. About 75% of chlorine atoms are Cl-35, and 25% are Cl-37.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "If chlorine has 75% Cl-35 and 25% Cl-37, what is its average atomic mass?",
+                  "options": ["35", "36", "35.5", "37"],
+                  "correctAnswer": 2,
+                  "explanation": "Average = (35 × 0.75) + (37 × 0.25) = 35.5 amu"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Molecular Mass Calculations",
+          "description": "Calculating masses of molecules and compounds",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Now let's move from atoms to molecules. The molecular mass is the sum of the atomic masses of all atoms in a molecule.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "So, for water, H₂O… that's 2 × 1 (for hydrogen) + 16 (for oxygen) = 18 amu?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Exactly. And for CO₂, it's 12 (carbon) + 2 × 16 (oxygen) = 44 amu.",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1564325724739-bae0bd08762c?w=400&h=300&fit=crop",
+                  "alt": "Molecular mass calculation examples"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "Easy! So NaCl would be… 23 + 16 = 39 amu?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Careful there. Oxygen is 16, but chlorine is 35.5. So NaCl is 23 + 35.5 = 58.5 amu. For ionic compounds like NaCl, we don't really have 'molecules.' Instead, we talk about formula mass—the mass of the simplest formula unit.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "What is the molecular mass of glucose, C₆H₁₂O₆?",
+                  "options": ["180 amu", "144 amu", "162 amu", "198 amu"],
+                  "correctAnswer": 0,
+                  "explanation": "C₆H₁₂O₆ = 6×12 + 12×1 + 6×16 = 72 + 12 + 96 = 180 amu"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "The Mole Concept",
+      "description": "Understanding the fundamental counting unit in chemistry",
+      "subsections": [
+        {
+          "id": 1,
+          "title": "Introducing the Mole",
+          "description": "What is a mole and Avogadro's number",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "In everyday life, we buy eggs by the dozen. What does a dozen mean?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "12 eggs. Easy.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Exactly. In chemistry, we deal with unimaginably small particles—atoms and molecules. To make them manageable, scientists defined a 'dozen' for atoms: the mole.",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop",
+                  "alt": "Avogadro's number visualization"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "So… a mole is 12 atoms?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Not quite. One mole = 6.022 × 10²³ particles. This number is called Avogadro's number. The mass of one mole of a substance, in grams, is its molar mass. For hydrogen, molar mass is 1 g. For oxygen (O₂), it's 32 g. For water (H₂O), it's 18 g.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "How many molecules are in 36 g of water (H₂O)?",
+                  "options": ["6.022 × 10²³", "1.2 × 10²⁴", "3.01 × 10²³", "1.8 × 10²³"],
+                  "correctAnswer": 1,
+                  "explanation": "36 g H₂O = 2 moles, so 2 × 6.022 × 10²³ = 1.2 × 10²⁴ molecules"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Mole Calculations",
+          "description": "Converting between moles, mass, and number of particles",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Here's the golden triangle of mole calculations: 1 mole of a substance = molar mass in grams = 6.022 × 10²³ particles.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "So… if I have 18 g of water, that's 1 mole = 6.022 × 10²³ molecules?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Perfect! And if you had 9 g of water, that's half a mole → 3.011 × 10²³ molecules. Let's do some quick examples: How many moles are in 12 g of carbon? Moles = given mass ÷ molar mass = 12 ÷ 12 = 1 mole. How many atoms in 12 g of carbon? = 1 mole × Avogadro's number = 6.022 × 10²³ atoms.",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1518152006812-edab29b069ac?w=400&h=300&fit=crop",
+                  "alt": "Mole calculation triangle diagram"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "That's… too many atoms for such a small piece of metal.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Welcome to the world of chemistry! The mole connects the invisible world of atoms to the visible world of grams and liters. Without it, chemistry would be impossible to measure.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "How many atoms are in 23 g of sodium?",
+                  "options": ["6.022 × 10²³", "1.2 × 10²⁴", "3.01 × 10²³", "2.3 × 10²³"],
+                  "correctAnswer": 0,
+                  "explanation": "23 g Na = 1 mole = 6.022 × 10²³ atoms (atomic mass of Na = 23)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Stoichiometry",
+      "description": "Calculating quantities in chemical reactions",
+      "subsections": [
+        {
+          "id": 1,
+          "title": "Chemical Equations as Recipes",
+          "description": "Understanding stoichiometric relationships",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Imagine you're baking cookies. The recipe says: 2 cups flour + 1 cup sugar → 12 cookies.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "Yumm, that's easy.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Chemistry works the same way. A chemical equation is like a recipe — it tells us how many 'parts' of each reactant combine to give products. This is called stoichiometry. But instead of cups and spoons, we use moles.",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1532634922-8fe0b757fb13?w=400&h=300&fit=crop",
+                  "alt": "Chemical equation balanced like a recipe"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "So, equations are like recipes for molecules?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Exactly! To do stoichiometry, we need balanced equations — same number of atoms on both sides. Example: 2H₂ + O₂ → 2H₂O. This means: 2 moles of hydrogen react with 1 mole of oxygen to form 2 moles of water.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "In the reaction 2H₂ + O₂ → 2H₂O, how many moles of oxygen are needed for 4 moles of hydrogen?",
+                  "options": ["1 mole", "2 moles", "4 moles", "8 moles"],
+                  "correctAnswer": 1,
+                  "explanation": "From the ratio 2H₂:1O₂, if we have 4 moles H₂, we need 2 moles O₂"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Limiting Reagents",
+          "description": "When one reactant runs out first",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Imagine you're making sandwiches. Each needs 2 slices of bread and 1 slice of cheese. If you have 10 slices of bread but only 3 slices of cheese, how many sandwiches can you make?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "Umm… bread can make 5 sandwiches, but cheese only allows 3… so 3 sandwiches?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Exactly! Cheese is the limiting reagent — it finishes first and decides the output. In chemistry, the same thing happens. Sometimes, reactants aren't in the exact ratio. One runs out first — that's the limiting reagent.",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?w=400&h=300&fit=crop",
+                  "alt": "Limiting reagent concept illustration"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "Just like the leftover bread!",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Perfect! The limiting reagent is like the ingredient that finishes first in a recipe. It decides how much product you can actually make, no matter how much of the other reactants you have. In industry, knowing the limiting reagent prevents waste and saves money.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "If 5 moles H₂ react with 2 moles O₂ to form water, which is the limiting reagent?",
+                  "options": ["H₂", "O₂", "H₂O", "Both are equal"],
+                  "correctAnswer": 1,
+                  "explanation": "For 5 moles H₂, we need 2.5 moles O₂, but only 2 moles available. O₂ is limiting."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0",
+    "lastUpdated": "2024-01-01",
+    "totalSections": 10,
+    "totalSubsections": 14,
+    "totalConversations": 70
+  },
+  "config": {
+    "storagePrefix": "chemistry_course",
+    "courseTitle": "Some Basic Concepts of Chemistry",
+    "subjectName": "Chemistry",
+    "notesTitle": "Study Notes",
+    "notesSubtitle": "Take notes while learning",
+    "notesPlaceholder": "Start typing your notes here...\n\n💡 Pro tips:\n- Organize your thoughts with bullet points\n- Add questions to review later\n- Include key formulas and concepts\n- Note down anything that interests you!",
+    "resourcesTitle": "Downloadable Resources",
+    "resourcesSubtitle": "Additional materials and practice exercises"
+  },
+  "resources": [
+    {
+      "sectionId": 1,
+      "sectionTitle": "Development of Chemistry",
+      "resources": [
+        {
+          "id": 1,
+          "type": "flashcards",
+          "title": "Alchemy to Modern Chemistry Flashcards",
+          "description": "Key historical concepts and transitions",
+          "fileSize": "2.1 MB",
+          "format": "PDF",
+          "downloadUrl": "#"
+        },
+        {
+          "id": 2,
+          "type": "worksheet",
+          "title": "History of Chemistry Timeline",
+          "description": "Interactive timeline worksheet",
+          "fileSize": "1.5 MB",
+          "format": "PDF",
+          "downloadUrl": "#"
+        }
+      ]
+    },
+    {
+      "sectionId": 2,
+      "sectionTitle": "Contributions of India to Chemistry",
+      "resources": [
+        {
+          "id": 3,
+          "type": "report",
+          "title": "Ancient Indian Chemistry Report Template",
+          "description": "Research template on Rasayan Shastra",
+          "fileSize": "2.8 MB",
+          "format": "DOCX",
+          "downloadUrl": "#"
+        },
+        {
+          "id": 4,
+          "type": "worksheet",
+          "title": "Bhasmas and Nanotechnology Worksheet",
+          "description": "Connect ancient and modern chemistry",
+          "fileSize": "1.2 MB",
+          "format": "PDF",
+          "downloadUrl": "#"
+        }
+      ]
+    },
+    {
+      "sectionId": 3,
+      "sectionTitle": "Importance of Chemistry",
+      "resources": [
+        {
+          "id": 5,
+          "type": "flashcards",
+          "title": "Chemistry Applications Flashcards",
+          "description": "Modern applications in medicine, technology",
+          "fileSize": "2.3 MB",
+          "format": "PDF",
+          "downloadUrl": "#"
+        }
+      ]
+    },
+    {
+      "sectionId": 4,
+      "sectionTitle": "Nature of Matter",
+      "resources": [
+        {
+          "id": 6,
+          "type": "worksheet",
+          "title": "States of Matter Practice Sheet",
+          "description": "Classify matter and particle behavior",
+          "fileSize": "1.8 MB",
+          "format": "PDF",
+          "downloadUrl": "#"
+        },
+        {
+          "id": 7,
+          "type": "video",
+          "title": "Matter Particle Animation",
+          "description": "Visual guide to particle arrangements",
+          "fileSize": "32 MB",
+          "format": "MP4",
+          "downloadUrl": "#"
+        }
+      ]
+    },
+    {
+      "sectionId": 8,
+      "sectionTitle": "Atomic and Molecular Masses",
+      "resources": [
+        {
+          "id": 8,
+          "type": "worksheet",
+          "title": "Atomic Mass Calculations Worksheet",
+          "description": "Practice problems with isotopes",
+          "fileSize": "2.2 MB",
+          "format": "PDF",
+          "downloadUrl": "#"
+        }
+      ]
+    },
+    {
+      "sectionId": 9,
+      "sectionTitle": "The Mole Concept",
+      "resources": [
+        {
+          "id": 9,
+          "type": "flashcards",
+          "title": "Mole Concept Flashcards",
+          "description": "Avogadro's number and calculations",
+          "fileSize": "2.7 MB",
+          "format": "PDF",
+          "downloadUrl": "#"
+        },
+        {
+          "id": 10,
+          "type": "worksheet",
+          "title": "Mole Calculations Practice",
+          "description": "Step-by-step calculation problems",
+          "fileSize": "3.1 MB",
+          "format": "PDF",
+          "downloadUrl": "#"
+        }
+      ]
+    },
+    {
+      "sectionId": 10,
+      "sectionTitle": "Stoichiometry",
+      "resources": [
+        {
+          "id": 11,
+          "type": "worksheet",
+          "title": "Stoichiometry Problems Set",
+          "description": "Chemical equation balancing and calculations",
+          "fileSize": "3.5 MB",
+          "format": "PDF",
+          "downloadUrl": "#"
+        },
+        {
+          "id": 12,
+          "type": "video",
+          "title": "Limiting Reagent Tutorial",
+          "description": "Video walkthrough of limiting reagent problems",
+          "fileSize": "28 MB",
+          "format": "MP4",
+          "downloadUrl": "#"
+        }
+      ]
+    }
+  ]
+}

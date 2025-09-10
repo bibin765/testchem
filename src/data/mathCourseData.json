@@ -1,0 +1,153 @@
+{
+  "courseTitle": "Algebra Fundamentals",
+  "courseDescription": "Understanding the basics of algebraic concepts and operations",
+  "sections": [
+    {
+      "id": 1,
+      "title": "Introduction to Algebra",
+      "description": "Understanding variables, expressions, and basic algebraic thinking",
+      "subsections": [
+        {
+          "id": 1,
+          "title": "What is Algebra?",
+          "description": "Exploring the definition and scope of algebra",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Welcome to Algebra! Have you ever wondered why we use letters like x and y in math?",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1635372722656-389f87a941b7?w=400&h=300&fit=crop",
+                  "alt": "Mathematical equations on a blackboard"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "I think it's to represent unknown numbers?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Exactly! Algebra is the branch of mathematics that uses symbols (usually letters) to represent numbers and express mathematical relationships.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "In the expression 3x + 5, what does 'x' represent?",
+                  "options": ["A number", "A variable", "An unknown value", "All of the above"],
+                  "correctAnswer": 3,
+                  "explanation": "In algebra, 'x' is a variable that can represent any number, making it an unknown value that we often solve for."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Linear Equations",
+      "description": "Solving equations with one variable",
+      "subsections": [
+        {
+          "id": 1,
+          "title": "One-Step Equations",
+          "description": "Simple equations requiring one operation to solve",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Let's start with the simplest type of equation. Can you solve x + 3 = 7?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "I think x = 4, because 4 + 3 = 7.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Perfect! You solved it by subtracting 3 from both sides. This is called the subtraction property of equality.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "What is the value of x in the equation x - 5 = 12?",
+                  "options": ["7", "17", "5", "12"],
+                  "correctAnswer": 1,
+                  "explanation": "To solve x - 5 = 12, we add 5 to both sides: x = 12 + 5 = 17"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0",
+    "lastUpdated": "2024-01-01",
+    "totalSections": 2,
+    "totalSubsections": 2,
+    "totalConversations": 6
+  },
+  "config": {
+    "storagePrefix": "algebra_course",
+    "courseTitle": "Algebra Fundamentals",
+    "subjectName": "Mathematics",
+    "notesTitle": "Math Notes",
+    "notesSubtitle": "Keep track of formulas and concepts",
+    "notesPlaceholder": "Write your algebra notes here...\n\n📝 Tips:\n- Write down key formulas\n- Note problem-solving steps\n- Record questions to review\n- Practice examples",
+    "resourcesTitle": "Math Resources",
+    "resourcesSubtitle": "Practice worksheets and reference materials"
+  },
+  "resources": [
+    {
+      "sectionId": 1,
+      "sectionTitle": "Introduction to Algebra",
+      "resources": [
+        {
+          "id": 1,
+          "type": "worksheet",
+          "title": "Variable Practice Worksheet",
+          "description": "Exercises on identifying and using variables",
+          "fileSize": "1.8 MB",
+          "format": "PDF",
+          "downloadUrl": "#"
+        },
+        {
+          "id": 2,
+          "type": "flashcards",
+          "title": "Algebra Vocabulary Cards",
+          "description": "Key terms and definitions",
+          "fileSize": "2.2 MB",
+          "format": "PDF",
+          "downloadUrl": "#"
+        }
+      ]
+    },
+    {
+      "sectionId": 2,
+      "sectionTitle": "Linear Equations",
+      "resources": [
+        {
+          "id": 3,
+          "type": "worksheet",
+          "title": "One-Step Equations Practice",
+          "description": "Solving simple linear equations",
+          "fileSize": "1.5 MB",
+          "format": "PDF",
+          "downloadUrl": "#"
+        },
+        {
+          "id": 4,
+          "type": "video",
+          "title": "Equation Solving Tutorial",
+          "description": "Step-by-step solving techniques",
+          "fileSize": "25 MB",
+          "format": "MP4",
+          "downloadUrl": "#"
+        }
+      ]
+    }
+  ]
+}

@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import ReactMarkdown from 'react-markdown';
 import ThreeBackground from './ThreeBackground';
+import QuizMode from './QuizMode';
 import courseDataJson from "../data/courseData.json";
 
 const courseData = courseDataJson.sections;
 const courseConfig = courseDataJson.config;
 const resourcesData = courseDataJson.resources;
+const quizData = courseDataJson.quizzes;
 
 // Flatten the data for navigation
 const getAllConversations = () => {
@@ -151,7 +153,7 @@ const deserializeStats = (stats) => ({
   subsectionsVisited: new Set(stats.subsectionsVisited || [])
 });
 
-export default function ConversationPage({ onSpeakerChange }) {
+export default function ConversationPage() {
   // Load initial state from localStorage
   const [currentIndex, setCurrentIndex] = useState(() => 
     loadFromLocalStorage(STORAGE_KEYS.CURRENT_INDEX, 0)
@@ -188,6 +190,11 @@ export default function ConversationPage({ onSpeakerChange }) {
   const [currentNote, setCurrentNote] = useState({ title: '', content: '', timestamp: null, id: null });
   const [editingNoteId, setEditingNoteId] = useState(null);
   const [showNoteInput, setShowNoteInput] = useState(false);
+  const [isQuizMode, setIsQuizMode] = useState(false);
+  
+  // Section transition indicator state
+  const [showSectionTransition, setShowSectionTransition] = useState(false);
+  const [transitionInfo, setTransitionInfo] = useState({ sectionTitle: '', subsectionTitle: '', type: '' });
   
   // Audio player state
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
@@ -318,10 +325,13 @@ export default function ConversationPage({ onSpeakerChange }) {
       }, 300);
     };
 
-    console.log('Setting up scroll and touch listeners, current index:', currentIndex);
-    window.addEventListener('wheel', handleWheel, { passive: false });
-    window.addEventListener('touchstart', handleTouchStart, { passive: true });
-    window.addEventListener('touchmove', handleTouchMove, { passive: false });
+    // Only set up scroll listeners when not in quiz mode
+    if (!isQuizMode) {
+      console.log('Setting up scroll and touch listeners, current index:', currentIndex);
+      window.addEventListener('wheel', handleWheel, { passive: false });
+      window.addEventListener('touchstart', handleTouchStart, { passive: true });
+      window.addEventListener('touchmove', handleTouchMove, { passive: false });
+    }
     
     return () => {
       console.log('Cleaning up scroll and touch listeners');
@@ -330,7 +340,7 @@ export default function ConversationPage({ onSpeakerChange }) {
       window.removeEventListener('touchmove', handleTouchMove);
       clearTimeout(scrollTimeout);
     };
-  }, [currentIndex]);
+  }, [currentIndex, isQuizMode]);
 
   const goNext = () => {
     if (currentIndex < dialogue.length - 1) {
@@ -834,6 +844,235 @@ export default function ConversationPage({ onSpeakerChange }) {
     }
   };
 
+  const downloadConversationAsPDF = async () => {
+    try {
+      const { jsPDF } = await import('jspdf');
+      const pdf = new jsPDF();
+
+      // Helper function to load image as base64
+      const loadImageAsBase64 = (src) => {
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          img.crossOrigin = 'Anonymous';
+          img.onload = function() {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = this.naturalWidth;
+            canvas.height = this.naturalHeight;
+            ctx.drawImage(this, 0, 0);
+            try {
+              const dataURL = canvas.toDataURL('image/jpeg', 0.8);
+              resolve(dataURL);
+            } catch (error) {
+              reject(error);
+            }
+          };
+          img.onerror = () => reject(new Error('Failed to load image'));
+          img.src = src;
+        });
+      };
+      
+      // PDF settings
+      const pageWidth = pdf.internal.pageSize.width;
+      const pageHeight = pdf.internal.pageSize.height;
+      const margin = 20;
+      const maxWidth = pageWidth - 2 * margin;
+      const lineHeight = 6;
+      let yPosition = margin + 20;
+
+      // Title page
+      pdf.setFontSize(24);
+      pdf.setFont(undefined, 'bold');
+      pdf.text('Chemistry Course Conversation', pageWidth / 2, yPosition, { align: 'center' });
+      yPosition += 15;
+
+      pdf.setFontSize(14);
+      pdf.setFont(undefined, 'normal');
+      const date = new Date().toLocaleDateString();
+      pdf.text(`Generated on ${date}`, pageWidth / 2, yPosition, { align: 'center' });
+      yPosition += 20;
+
+      pdf.setFontSize(12);
+      pdf.text(`Total Messages: ${dialogue.length}`, pageWidth / 2, yPosition, { align: 'center' });
+      yPosition += 30;
+
+      // Group conversations by section and subsection
+      const groupedConversations = {};
+      dialogue.forEach((message, index) => {
+        const sectionKey = `${message.sectionId}-${message.sectionTitle}`;
+        const subsectionKey = `${message.subsectionId}-${message.subsectionTitle}`;
+        
+        if (!groupedConversations[sectionKey]) {
+          groupedConversations[sectionKey] = {
+            sectionTitle: message.sectionTitle,
+            subsections: {}
+          };
+        }
+        
+        if (!groupedConversations[sectionKey].subsections[subsectionKey]) {
+          groupedConversations[sectionKey].subsections[subsectionKey] = {
+            subsectionTitle: message.subsectionTitle,
+            messages: []
+          };
+        }
+        
+        groupedConversations[sectionKey].subsections[subsectionKey].messages.push({
+          ...message,
+          index: index + 1
+        });
+      });
+
+      // Generate content
+      for (const section of Object.values(groupedConversations)) {
+        // Check if we need a new page
+        if (yPosition + 40 > pageHeight - margin) {
+          pdf.addPage();
+          yPosition = margin + 10;
+        }
+
+        // Section header
+        pdf.setFontSize(18);
+        pdf.setFont(undefined, 'bold');
+        pdf.text(section.sectionTitle, margin, yPosition);
+        yPosition += 20;
+
+        for (const subsection of Object.values(section.subsections)) {
+          // Check if we need a new page
+          if (yPosition + 30 > pageHeight - margin) {
+            pdf.addPage();
+            yPosition = margin + 10;
+          }
+
+          // Subsection header
+          pdf.setFontSize(14);
+          pdf.setFont(undefined, 'bold');
+          pdf.text(`  ${subsection.subsectionTitle}`, margin, yPosition);
+          yPosition += 15;
+
+          // Messages in this subsection
+          for (const message of subsection.messages) {
+            // Check if we need a new page
+            if (yPosition + 25 > pageHeight - margin) {
+              pdf.addPage();
+              yPosition = margin + 10;
+            }
+
+            // Message header
+            pdf.setFontSize(12);
+            pdf.setFont(undefined, 'bold');
+            const speaker = message.speaker === 'Teacher' ? 'Instructor' : 'Student';
+            pdf.text(`    ${message.index}. ${speaker}:`, margin, yPosition);
+            yPosition += 8;
+
+            // Message content
+            pdf.setFontSize(11);
+            pdf.setFont(undefined, 'normal');
+            const contentLines = pdf.splitTextToSize(`      ${message.text}`, maxWidth - 30);
+            
+            for (let i = 0; i < contentLines.length; i++) {
+              if (yPosition + lineHeight > pageHeight - margin) {
+                pdf.addPage();
+                yPosition = margin + 10;
+              }
+              pdf.text(contentLines[i], margin, yPosition);
+              yPosition += lineHeight;
+            }
+            
+            yPosition += 5; // Space after message text
+
+            // Add images if they exist in sidebarContent
+            if (message.sidebarContent && Array.isArray(message.sidebarContent)) {
+              const images = message.sidebarContent.filter(content => content.type === 'image');
+              
+              for (const imageContent of images) {
+                try {
+                  // Check if we have enough space for the image
+                  const imageHeight = 60; // Reserve space for image
+                  if (yPosition + imageHeight + 20 > pageHeight - margin) {
+                    pdf.addPage();
+                    yPosition = margin + 10;
+                  }
+
+                  // Load and add image
+                  const imageData = await loadImageAsBase64(imageContent.src);
+                  
+                  // Calculate image dimensions to fit within page
+                  const maxImageWidth = maxWidth - 60; // Leave margin for indentation
+                  const maxImageHeight = 50;
+                  
+                  pdf.addImage(
+                    imageData, 
+                    'JPEG', 
+                    margin + 30, // Indent image like message content
+                    yPosition, 
+                    maxImageWidth, 
+                    maxImageHeight
+                  );
+                  
+                  yPosition += maxImageHeight + 5;
+                  
+                  // Add image caption
+                  if (imageContent.alt) {
+                    pdf.setFontSize(9);
+                    pdf.setFont(undefined, 'italic');
+                    const captionLines = pdf.splitTextToSize(`        ${imageContent.alt}`, maxWidth - 30);
+                    
+                    for (let i = 0; i < captionLines.length; i++) {
+                      if (yPosition + lineHeight > pageHeight - margin) {
+                        pdf.addPage();
+                        yPosition = margin + 10;
+                      }
+                      pdf.text(captionLines[i], margin, yPosition);
+                      yPosition += lineHeight;
+                    }
+                  }
+                  
+                  yPosition += 10; // Extra space after image
+                  
+                } catch (error) {
+                  console.warn('Failed to load image:', imageContent.src, error);
+                  // Add a note that image couldn't be loaded
+                  pdf.setFontSize(9);
+                  pdf.setFont(undefined, 'italic');
+                  pdf.text(`        [Image: ${imageContent.alt || 'Educational image'} - Could not load]`, margin, yPosition);
+                  yPosition += lineHeight + 5;
+                }
+              }
+            }
+            
+            yPosition += 5; // Additional space between messages
+          }
+          
+          yPosition += 10; // Space between subsections
+        }
+        
+        yPosition += 15; // Space between sections
+      }
+
+      // Add footer to all pages
+      const totalPages = pdf.internal.getNumberOfPages();
+      for (let i = 1; i <= totalPages; i++) {
+        pdf.setPage(i);
+        pdf.setFontSize(10);
+        pdf.setFont(undefined, 'normal');
+        pdf.text(
+          `Chemistry Course Conversation - Page ${i} of ${totalPages}`, 
+          pageWidth / 2, 
+          pageHeight - 10, 
+          { align: 'center' }
+        );
+      }
+
+      // Download PDF
+      const fileName = `chemistry-conversation-${new Date().toISOString().split('T')[0]}.pdf`;
+      pdf.save(fileName);
+      
+    } catch (error) {
+      console.error('Failed to generate conversation PDF:', error);
+      alert('Failed to generate conversation PDF. Please try again.');
+    }
+  };
+
   const clearAllNotes = () => {
     if (window.confirm(`Are you sure you want to delete all ${notesList.length} notes? This action cannot be undone.`)) {
       setNotesList([]);
@@ -902,11 +1141,6 @@ export default function ConversationPage({ onSpeakerChange }) {
 
   const totalStats = getTotalContentStats();
 
-  useEffect(() => {
-    if (onSpeakerChange) {
-      onSpeakerChange(currentMessage?.speaker);
-    }
-  }, [currentMessage, onSpeakerChange]);
 
   // Autoplay functionality
   useEffect(() => {
@@ -953,11 +1187,55 @@ export default function ConversationPage({ onSpeakerChange }) {
     saveToLocalStorage(STORAGE_KEYS.NOTES, notesList);
   }, [notesList]);
 
+  // Update body attribute for quiz mode to enable/disable scrolling
+  useEffect(() => {
+    if (isQuizMode) {
+      document.body.setAttribute('data-quiz-mode', 'true');
+    } else {
+      document.body.removeAttribute('data-quiz-mode');
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.removeAttribute('data-quiz-mode');
+    };
+  }, [isQuizMode]);
+
+  // Track section/subsection transitions
+  useEffect(() => {
+    const currentMessage = dialogue[currentIndex];
+    const previousMessage = dialogue[currentIndex - 1];
+    
+    if (!currentMessage || !previousMessage || isQuizMode) return;
+    
+    const sectionChanged = currentMessage.sectionTitle !== previousMessage.sectionTitle;
+    const subsectionChanged = currentMessage.subsectionTitle !== previousMessage.subsectionTitle;
+    
+    if (sectionChanged || subsectionChanged) {
+      const transitionType = sectionChanged ? 'section' : 'subsection';
+      
+      setTransitionInfo({
+        sectionTitle: currentMessage.sectionTitle,
+        subsectionTitle: currentMessage.subsectionTitle,
+        type: transitionType
+      });
+      
+      setShowSectionTransition(true);
+      
+      // Hide the indicator after 2 seconds
+      const timer = setTimeout(() => {
+        setShowSectionTransition(false);
+      }, 2000);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [currentIndex, isQuizMode]);
+
   // Keyboard shortcuts for notes
   useEffect(() => {
     const handleKeyDown = (e) => {
-      // Arrow key navigation between conversations
-      if (!e.ctrlKey && !e.metaKey && !e.altKey) {
+      // Arrow key navigation between conversations - disabled in quiz mode
+      if (!isQuizMode && !e.ctrlKey && !e.metaKey && !e.altKey) {
         const target = e.target;
         const tag = target?.tagName?.toLowerCase();
         const isTyping = tag === 'input' || tag === 'textarea' || target?.isContentEditable;
@@ -989,7 +1267,7 @@ export default function ConversationPage({ onSpeakerChange }) {
 
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [showNotesPanel, notesList]);
+  }, [showNotesPanel, notesList, isQuizMode]);
 
   // Save general progress data
   useEffect(() => {
@@ -1011,6 +1289,16 @@ export default function ConversationPage({ onSpeakerChange }) {
     }
   }, []);
 
+  // Render Quiz Mode if active
+  if (isQuizMode) {
+    return (
+      <QuizMode 
+        quizData={quizData}
+        onClose={() => setIsQuizMode(false)}
+      />
+    );
+  }
+
   return (
     <div className="h-screen bg-transparent text-white flex overflow-hidden relative">
       {/* Hidden Audio Element */}
@@ -1022,19 +1310,35 @@ export default function ConversationPage({ onSpeakerChange }) {
         style={{ display: 'none' }}
       />
       
-      {/* 3D Background with Avatars */}
-      <ThreeBackground 
-        messageType={currentMessage?.speaker === "Teacher" ? "teacher" : "student"}
-        contentType={currentMessage?.sidebarContent ? "multimedia" : "text"}
-      />
+      {/* 3D Background with Avatars - Only show in conversation mode */}
+      {!isQuizMode && (
+        <ThreeBackground 
+          messageType={currentMessage?.speaker === "Teacher" ? "teacher" : "student"}
+          contentType={currentMessage?.sidebarContent ? "multimedia" : "text"}
+        />
+      )}
+      
       
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Fixed Header */}
         <div className="flex-shrink-0 text-center py-12 px-6">
-        <div className="space-y-2">
-          <p className="text-2xl">Ncert :  Class 11 : Chapter 1: Some basic concepts of chemistry</p>
-          <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
+        <div className={`space-y-4 ${showRightAssets ? 'max-w-3xl mx-auto' : 'max-w-4xl mx-auto'}`}>
+          {/* Title - Now Centered */}
+          <div className="text-center">
+            <h1 className={`font-medium leading-relaxed ${
+              showRightAssets ? 'text-lg sm:text-xl lg:text-2xl' : 'text-xl sm:text-2xl lg:text-3xl'
+            } break-words`}>
+              Class 11 : Chapter 1: Some basic concepts of chemistry
+            </h1>
+          </div>
+          
+          {/* Section/Subsection Breadcrumb */}
+          <div className={`flex items-center justify-center gap-2 text-sm transition-all duration-300 ${
+            showSectionTransition ? 
+              (transitionInfo.type === 'section' ? 'text-yellow-400 font-semibold animate-pulse' : 'text-green-400 font-semibold animate-pulse') 
+              : 'text-gray-500'
+          }`}>
             <span>{currentMessage.sectionTitle}</span>
             <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
               <path d="M9 18l6-6-6-6v12z"/>
@@ -1055,6 +1359,29 @@ export default function ConversationPage({ onSpeakerChange }) {
             <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
           </svg>
         </button>
+      </div>
+
+      {/* Quiz Mode Toggle - Below Menu Button */}
+      <div className="fixed top-20 left-6 z-50">
+        <div className="bg-gray-900 border border-gray-700 rounded-lg p-3 shadow-lg">
+          <div className="flex items-center gap-3">
+            <span className="text-xs text-gray-400">Conversation</span>
+            <button
+              onClick={() => setIsQuizMode(!isQuizMode)}
+              className={`relative inline-flex items-center h-5 rounded-full w-10 transition-colors duration-200 focus:outline-none ${
+                isQuizMode ? 'bg-blue-500' : 'bg-gray-600'
+              }`}
+              title="Toggle Quiz Mode"
+            >
+              <span
+                className={`inline-block w-3 h-3 transform bg-white rounded-full transition-transform duration-200 ${
+                  isQuizMode ? 'translate-x-6' : 'translate-x-1'
+                }`}
+              />
+            </button>
+            <span className="text-xs text-blue-400">Quiz</span>
+          </div>
+        </div>
       </div>
 
       {/* Notes, Stats, Assets, and Resources Toggle Buttons (moved to left beside menu) */}
@@ -1587,6 +1914,33 @@ export default function ConversationPage({ onSpeakerChange }) {
                 </div>
               </div>
             ))}
+
+            {/* Download Conversation Section */}
+            <div className="bg-gradient-to-br from-blue-900/20 to-purple-900/20 rounded-xl p-4 border border-blue-700/30 mb-4">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M7 7h10v2H7zm0 4h10v2H7zm0 4h7v2H7z M4 6c0-1.1.9-2 2-2h12c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V6z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-white font-medium">Full Conversation PDF</h3>
+                  <p className="text-gray-400 text-sm">Complete dialogue with sections & images</p>
+                </div>
+              </div>
+              <button
+                onClick={() => downloadConversationAsPDF()}
+                className="w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-all duration-200 flex items-center justify-center gap-2"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                </svg>
+                Download Conversation
+              </button>
+              <p className="text-xs text-gray-500 text-center mt-2">
+                {dialogue.length} messages • {totalStats.totalImages} images
+              </p>
+            </div>
 
             {/* Download All Section */}
             <div className="bg-gradient-to-br from-gray-900/30 to-slate-900/30 rounded-xl p-4 border border-gray-700/30">
@@ -2670,7 +3024,7 @@ export default function ConversationPage({ onSpeakerChange }) {
                 // Filter AI responses by the selected message context
                 const currentMessage = dialogue[currentIndex];
                 const contextResponses = aiResponses.filter(response => 
-                  response.contextMessageId === currentIndex
+                  response.contextIndex === currentIndex
                 );
 
                 if (contextResponses.length === 0) {
@@ -2788,7 +3142,7 @@ export default function ConversationPage({ onSpeakerChange }) {
                   {(() => {
                     const currentMessage = dialogue[currentIndex];
                     const contextResponses = aiResponses.filter(response => 
-                      response.contextMessageId === currentIndex
+                      response.contextIndex === currentIndex
                     );
 
                     if (contextResponses.length === 0) {

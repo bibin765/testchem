@@ -1062,5 +1062,193 @@
         }
       ]
     }
-  ]
+  ],
+  "quizzes": {
+    "chapterTitle": "Some Basic Concepts of Chemistry",
+    "totalQuestions": 25,
+    "formats": {
+      "multipleChoice": {
+        "title": "Multiple Choice Questions",
+        "description": "Choose the best answer from the given options",
+        "questions": [
+          {
+            "id": 1,
+            "question": "Which of the following is the correct definition of chemistry?",
+            "options": [
+              "Study of living organisms",
+              "Study of preparation, properties, structure, and reactions of materials",
+              "Study of celestial bodies",
+              "Study of earth's physical features"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Chemistry is the branch of science that studies the preparation, properties, structure, and reactions of materials.",
+            "difficulty": "easy",
+            "section": "Development of Chemistry"
+          },
+          {
+            "id": 2,
+            "question": "What were alchemists primarily trying to achieve?",
+            "options": [
+              "Create new medicines",
+              "Find the Philosopher's Stone and Elixir of Life",
+              "Study atomic structure",
+              "Develop periodic table"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Alchemists were chasing two legendary goals: The Philosopher's Stone to turn base metals into gold, and The Elixir of Life for immortality.",
+            "difficulty": "easy",
+            "section": "Development of Chemistry"
+          },
+          {
+            "id": 3,
+            "question": "What is the atomic mass unit based on?",
+            "options": [
+              "Hydrogen-1",
+              "Carbon-12",
+              "Oxygen-16",
+              "Carbon-14"
+            ],
+            "correctAnswer": 1,
+            "explanation": "The atomic mass unit (amu) is defined as 1/12th the mass of a carbon-12 atom.",
+            "difficulty": "medium",
+            "section": "Atomic Masses and Composition"
+          },
+          {
+            "id": 4,
+            "question": "Avogadro's number is approximately:",
+            "options": [
+              "6.022 × 10²³",
+              "6.022 × 10²²", 
+              "3.011 × 10²³",
+              "1.602 × 10¹⁹"
+            ],
+            "correctAnswer": 0,
+            "explanation": "Avogadro's number is 6.022 × 10²³, representing the number of particles in one mole.",
+            "difficulty": "medium",
+            "section": "Mole Concept"
+          },
+          {
+            "id": 5,
+            "question": "In the reaction 2H₂ + O₂ → 2H₂O, if we have 3 moles of H₂ and 1 mole of O₂, what is the limiting reagent?",
+            "options": [
+              "H₂",
+              "O₂", 
+              "H₂O",
+              "Both are equal"
+            ],
+            "correctAnswer": 1,
+            "explanation": "3 moles H₂ requires 1.5 moles O₂, but we only have 1 mole O₂. Therefore, O₂ is the limiting reagent.",
+            "difficulty": "hard",
+            "section": "Stoichiometry"
+          }
+        ]
+      },
+      "truefalse": {
+        "title": "True/False Questions",
+        "description": "Determine whether each statement is true or false",
+        "questions": [
+          {
+            "id": 1,
+            "question": "Chemistry evolved directly from alchemy practices.",
+            "answer": true,
+            "explanation": "Chemistry did evolve from alchemy, as alchemists developed many experimental techniques and equipment that became foundational to modern chemistry.",
+            "difficulty": "easy",
+            "section": "Development of Chemistry"
+          },
+          {
+            "id": 2,
+            "question": "One mole of any substance contains the same number of particles.",
+            "answer": true,
+            "explanation": "By definition, one mole of any substance contains Avogadro's number (6.022 × 10²³) of particles.",
+            "difficulty": "medium",
+            "section": "Mole Concept"
+          },
+          {
+            "id": 3,
+            "question": "Atomic mass and molecular mass are measured in the same units.",
+            "answer": true,
+            "explanation": "Both atomic mass and molecular mass are measured in atomic mass units (amu).",
+            "difficulty": "easy",
+            "section": "Atomic Masses and Composition"
+          },
+          {
+            "id": 4,
+            "question": "In a balanced chemical equation, the limiting reagent is always the one with the smallest coefficient.",
+            "answer": false,
+            "explanation": "The limiting reagent is determined by the molar ratio and available quantities, not just the coefficients in the equation.",
+            "difficulty": "hard",
+            "section": "Stoichiometry"
+          }
+        ]
+      },
+      "fillblanks": {
+        "title": "Fill in the Blanks",
+        "description": "Complete the sentences with the correct terms",
+        "questions": [
+          {
+            "id": 1,
+            "question": "The branch of science that studies the preparation, properties, structure, and reactions of materials is called ______.",
+            "answer": "chemistry",
+            "explanation": "Chemistry is defined as the branch of science that studies materials and their transformations.",
+            "difficulty": "easy",
+            "section": "Development of Chemistry"
+          },
+          {
+            "id": 2,
+            "question": "One ______ is defined as the amount of substance that contains as many particles as there are atoms in exactly 12g of carbon-12.",
+            "answer": "mole",
+            "explanation": "The mole is the SI unit for amount of substance, defined relative to carbon-12.",
+            "difficulty": "medium",
+            "section": "Mole Concept"
+          },
+          {
+            "id": 3,
+            "question": "The atomic mass unit is defined as ______ the mass of a carbon-12 atom.",
+            "answer": "1/12th",
+            "explanation": "The atomic mass unit (amu) is exactly 1/12th the mass of a carbon-12 atom.",
+            "difficulty": "medium",
+            "section": "Atomic Masses and Composition"
+          },
+          {
+            "id": 4,
+            "question": "Avogadro's number is approximately ______.",
+            "answer": "6.022 × 10²³",
+            "explanation": "Avogadro's number is 6.022 × 10²³ particles per mole.",
+            "difficulty": "medium",
+            "section": "Mole Concept"
+          }
+        ]
+      },
+      "shortanswer": {
+        "title": "Short Answer Questions", 
+        "description": "Provide brief answers to the following questions",
+        "questions": [
+          {
+            "id": 1,
+            "question": "Explain the difference between alchemy and modern chemistry.",
+            "sampleAnswer": "Alchemy was a medieval practice focused on mystical goals like turning metals to gold and finding the elixir of life, often mixing science with magic. Modern chemistry is a systematic scientific study of matter, its properties, composition, and reactions based on empirical evidence and the scientific method.",
+            "keyPoints": ["Scientific method vs mystical approach", "Evidence-based vs magical thinking", "Systematic study vs goal-oriented practice"],
+            "difficulty": "medium",
+            "section": "Development of Chemistry"
+          },
+          {
+            "id": 2,
+            "question": "What is the significance of Avogadro's number in chemistry?",
+            "sampleAnswer": "Avogadro's number (6.022 × 10²³) represents the number of particles in one mole of any substance. It provides a bridge between the atomic scale and the macroscopic scale, allowing chemists to count atoms and molecules by weighing samples.",
+            "keyPoints": ["Bridge between atomic and macroscopic scale", "Enables counting by weighing", "Fundamental to mole concept"],
+            "difficulty": "medium",
+            "section": "Mole Concept"
+          },
+          {
+            "id": 3,
+            "question": "How do you determine the limiting reagent in a chemical reaction?",
+            "sampleAnswer": "To determine the limiting reagent: 1) Write the balanced chemical equation, 2) Convert given quantities to moles, 3) Use stoichiometry to find how much of each reactant is needed, 4) The reactant that is completely consumed first (runs out) is the limiting reagent.",
+            "keyPoints": ["Balance equation", "Convert to moles", "Apply stoichiometry", "Identify what runs out first"],
+            "difficulty": "hard",
+            "section": "Stoichiometry"
+          }
+        ]
+      }
+    }
+  }
 }

@@ -68,11 +68,12 @@ function Character({ side = 'left', active = false, color = '#ffffff' }) {
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
-    const margin = 1.0; // world units margin from edges
+    const leftMargin = 2.8; // Increased margin to move left character more towards center
+    const rightMargin = 0; // Keep original margin for right character
     const sidebarWidth = 5.0; // Approximate world units for 320px sidebar
     const baseX = side === 'left' 
-      ? -viewport.width / 2 + margin 
-      : viewport.width / 2 - margin - sidebarWidth; // Move left character away from sidebar
+      ? -viewport.width / 2 + leftMargin 
+      : viewport.width / 2 - rightMargin - sidebarWidth; // Keep right character in original position
     const baseY = -viewport.height / 2 + 1.2; // near bottom
     const targetScale = active ? 1 : 0.85;
     const targetOpacity = active ? 1 : 0.35;
@@ -153,17 +154,20 @@ export default function ThreeBackground({
           <ambientLight intensity={0.9} />
           <directionalLight position={[3, 4, 5]} intensity={0.8} />
           <FloatingCubes messageType={messageType} count={cubeCount} />
-          {/* Characters: Teacher on left, Student on right */}
-          <Character 
-            side="left" 
-            active={messageType === 'teacher'} 
-            color="#ff6b9d" // Pink for teacher
-          />
-          <Character 
-            side="right" 
-            active={messageType === 'student'} 
-            color="#00ff88" // Green for student
-          />
+          {/* Show only the active character to avoid stacking */}
+          {messageType === 'teacher' ? (
+            <Character 
+              side="left" 
+              active={true} 
+              color="#ff6b9d" // Pink for teacher
+            />
+          ) : (
+            <Character 
+              side="right" 
+              active={true} 
+              color="#00ff88" // Green for student
+            />
+          )}
         </Canvas>
       </div>
     </>

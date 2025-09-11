@@ -1,0 +1,415 @@
+{
+  "courseTitle": "Healthcare Patient Communication Training",
+  "courseDescription": "Interactive training program for healthcare professionals to improve patient communication, bedside manner, and clinical decision-making through realistic scenarios",
+  "sections": [
+    {
+      "id": 1,
+      "title": "Patient Interview Techniques",
+      "description": "Master the art of gathering patient history and building rapport",
+      "subsections": [
+        {
+          "id": 1,
+          "title": "Initial Patient Assessment",
+          "description": "Learn how to conduct effective initial patient consultations",
+          "conversations": [
+            {
+              "speaker": "Instructor",
+              "text": "Welcome to patient communication training. Today we'll practice with Mrs. Thompson, a 65-year-old patient presenting with chest pain. Remember, your first impression sets the tone for the entire interaction.",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=300&fit=crop",
+                  "alt": "Healthcare professional talking with elderly patient"
+                }
+              ]
+            },
+            {
+              "speaker": "Trainee",
+              "text": "Good morning, Mrs. Thompson. I'm Dr. Smith. I understand you've been experiencing some chest discomfort. Can you tell me more about what brought you in today?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Patient (Mrs. Thompson)",
+              "text": "Good morning, Doctor. Yes, I've been having this sharp pain in my chest since yesterday evening. It comes and goes, but it's been worrying me, especially since my husband had a heart attack last year.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "What is the most appropriate next step in this patient interview?",
+                  "options": [
+                    "Immediately order an EKG",
+                    "Ask about the specific characteristics of the pain (location, quality, duration)",
+                    "Reassure her it's probably nothing serious",
+                    "Ask about her family history first"
+                  ],
+                  "correctAnswer": 1,
+                  "explanation": "Gathering detailed information about the chief complaint (pain characteristics) is essential before moving to other aspects of history or diagnostic tests."
+                }
+              ]
+            },
+            {
+              "speaker": "Trainee",
+              "text": "I can understand your concern, especially given your husband's history. Let's explore this pain more carefully. Can you show me exactly where you feel the pain? And would you describe it as sharp, dull, crushing, or burning?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Patient (Mrs. Thompson)",
+              "text": "It's right here, in the center of my chest. *points to sternum* It feels like a sharp, stabbing pain that lasts maybe 10-15 seconds, then goes away. It seems to happen when I take deep breaths or move certain ways.",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop",
+                  "alt": "Anatomical diagram of chest showing sternum and surrounding structures"
+                }
+              ]
+            },
+            {
+              "speaker": "Instructor",
+              "text": "Excellent questioning technique! Notice how you gathered location, quality, duration, and triggers. This pleuritic chest pain pattern suggests different possibilities than cardiac chest pain. What would you explore next?",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "Based on the pain characteristics described, what is the most likely category?",
+                  "options": [
+                    "Cardiac chest pain",
+                    "Pleuritic (lung-related) chest pain",
+                    "Gastrointestinal chest pain",
+                    "Musculoskeletal chest pain"
+                  ],
+                  "correctAnswer": 3,
+                  "explanation": "Sharp, stabbing pain that's positional and lasts seconds is more characteristic of musculoskeletal chest pain, especially when related to movement and breathing."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Difficult Conversations",
+          "description": "Navigate challenging patient interactions with empathy and professionalism",
+          "conversations": [
+            {
+              "speaker": "Instructor",
+              "text": "Now let's practice a more challenging scenario. Mr. Rodriguez is a 45-year-old patient who just received test results indicating Type 2 diabetes. He's been waiting for these results and appears anxious.",
+              "sidebarContent": [
+                {
+                  "type": "video",
+                  "src": "https://www.youtube.com/embed/QhXSJhg5jSQ",
+                  "title": "Breaking Bad News to Patients - Communication Skills"
+                }
+              ]
+            },
+            {
+              "speaker": "Patient (Mr. Rodriguez)",
+              "text": "Doctor, I've been waiting two hours for these results. My wife is in the parking lot and I told her this would be quick. Please just tell me - am I okay or not?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Trainee",
+              "text": "Mr. Rodriguez, I apologize for the wait. I can see you're anxious to get these results. Let's sit down and go through them together. Your wife is welcome to join us if you'd like.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Patient (Mr. Rodriguez)",
+              "text": "No, she worries too much. Just tell me straight - what did the tests show?",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "What's the best approach for delivering potentially concerning medical news?",
+                  "options": [
+                    "Give the diagnosis immediately and directly",
+                    "Start with reassuring information, then give diagnosis with explanation",
+                    "Ask what the patient already knows or suspects first",
+                    "Delay giving the diagnosis until next visit"
+                  ],
+                  "correctAnswer": 2,
+                  "explanation": "The 'Ask-Tell-Ask' method starts by understanding the patient's baseline knowledge and concerns before delivering news, making the conversation more effective."
+                }
+              ]
+            },
+            {
+              "speaker": "Trainee",
+              "text": "Before we go through the results, can you tell me what you've been thinking these tests might show? Sometimes patients have concerns or suspicions.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Patient (Mr. Rodriguez)",
+              "text": "Well, my dad had diabetes, and I've been really tired lately, drinking a lot of water. I'm worried it might be diabetes, but I'm hoping it's just stress from work.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Trainee",
+              "text": "I can hear that you've been putting some pieces together, and your concerns are very understandable given your family history and symptoms. Your blood tests do confirm that you have Type 2 diabetes. I know this isn't the news you were hoping for.",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=300&fit=crop",
+                  "alt": "Doctor having serious conversation with patient"
+                }
+              ]
+            },
+            {
+              "speaker": "Instructor",
+              "text": "Good use of the warning shot technique - 'this isn't the news you were hoping for' - which helps prepare patients emotionally. Now notice his reaction and respond appropriately.",
+              "sidebarContent": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Emergency Scenarios",
+      "description": "Practice communication during high-stress emergency situations",
+      "subsections": [
+        {
+          "id": 1,
+          "title": "Trauma Team Communication",
+          "description": "Coordinate effectively during trauma responses",
+          "conversations": [
+            {
+              "speaker": "Instructor",
+              "text": "You're the attending physician in the ER. A 28-year-old motorcycle accident victim is incoming. ETA 3 minutes. The paramedic radio report indicates possible internal bleeding and altered mental status.",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=300&fit=crop",
+                  "alt": "Emergency room trauma bay preparation"
+                }
+              ]
+            },
+            {
+              "speaker": "Trainee (Attending)",
+              "text": "Team, we have a Level 1 trauma incoming - motorcycle vs car, 3 minutes out. Suspected internal bleeding, altered LOC. I need trauma bay 1 prepped, blood bank notified for 6 units O-neg, and CT ready. Who's our trauma surgeon tonight?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Nurse",
+              "text": "Dr. Patel is on call. I'm calling her now. Blood bank says they'll have O-neg ready in 2 minutes. Bay 1 is set up.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Paramedic (Radio)",
+              "text": "Trauma 1, this is Unit 15. Patient is a 28-year-old male, high-speed collision. BP 90/60, HR 120, GCS 12. Large abdominal contusion, possible femur fracture. Two large bore IVs running wide open. ETA 90 seconds.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "What is the most concerning aspect of this patient's presentation?",
+                  "options": [
+                    "The femur fracture",
+                    "The altered mental status (GCS 12)",
+                    "The combination of hypotension and tachycardia",
+                    "The abdominal contusion"
+                  ],
+                  "correctAnswer": 2,
+                  "explanation": "The combination of low blood pressure (90/60) and high heart rate (120) suggests shock, likely from internal bleeding, which is immediately life-threatening."
+                }
+              ]
+            },
+            {
+              "speaker": "Trainee (Attending)",
+              "text": "Copy Unit 15. Hypotensive and tachy - this patient is in shock. Team, prepare for immediate resuscitation. I want the FAST exam ready, trauma labs drawn stat, and let's get Dr. Patel down here immediately.",
+              "sidebarContent": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Pediatric Communication",
+      "description": "Special considerations for communicating with children and families",
+      "subsections": [
+        {
+          "id": 1,
+          "title": "Talking to Children and Parents",
+          "description": "Age-appropriate communication strategies",
+          "conversations": [
+            {
+              "speaker": "Instructor",
+              "text": "You're seeing 8-year-old Emma for a routine checkup, but her mother is concerned about Emma's recent complaints of stomach aches, especially on school mornings. Notice how we adapt our communication for different audiences.",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=300&fit=crop",
+                  "alt": "Pediatrician examining young child with parent present"
+                }
+              ]
+            },
+            {
+              "speaker": "Trainee (Pediatrician)",
+              "text": "Hi Emma! I'm Dr. Johnson. I love your unicorn t-shirt! Your mom tells me your tummy has been bothering you. Can you show me where it hurts?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Patient (Emma, age 8)",
+              "text": "*points to abdomen* Right here. It hurts when I have to go to school. But not on weekends!",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Mother",
+              "text": "See, Doctor? She's been complaining every school morning for three weeks. I'm worried there's something seriously wrong, but she seems fine on weekends and after school.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "What does this pattern of symptoms most likely suggest?",
+                  "options": [
+                    "Appendicitis",
+                    "Food intolerance",
+                    "School-related anxiety or stress",
+                    "Gastroenteritis"
+                  ],
+                  "correctAnswer": 2,
+                  "explanation": "Stomach aches that occur specifically on school mornings but not weekends often indicate school-related anxiety or stress rather than organic disease."
+                }
+              ]
+            },
+            {
+              "speaker": "Trainee (Pediatrician)",
+              "text": "Emma, that's really helpful information. Can you tell me about school? Do you like your teacher? Are there any kids who are mean to you? Sometimes our tummies hurt when we're worried about things.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Patient (Emma, age 8)",
+              "text": "Well... there's this boy Jake who always makes fun of my lunch. And Mrs. Miller gets really mad when kids don't know the math answers. I don't want to get in trouble.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Instructor",
+              "text": "Excellent approach! You spoke directly to Emma first, used age-appropriate language, and gently explored psychosocial factors. Now address both the child and parent with your assessment.",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=400&h=300&fit=crop",
+                  "alt": "Child talking to healthcare provider"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "config": {
+    "storagePrefix": "healthcare_communication_course",
+    "courseTitle": "Healthcare Communication Training",
+    "subjectName": "Healthcare Communication",
+    "notesTitle": "Clinical Notes",
+    "notesSubtitle": "Take notes on patient interaction techniques",
+    "notesPlaceholder": "Record your observations about:\n• Communication techniques that worked well\n• Patient responses and reactions\n• Areas for improvement\n• Key learning points from each scenario\n\nTips:\n- Note specific phrases that were effective\n- Consider different approaches for similar situations\n- Practice active listening techniques\n- Document empathy-building strategies",
+    "resourcesTitle": "Clinical Resources",
+    "resourcesSubtitle": "Downloadable communication guides and reference materials"
+  },
+  "resources": [
+    {
+      "sectionId": 1,
+      "sectionTitle": "Patient Interview Techniques",
+      "resources": [
+        {
+          "id": 1,
+          "type": "worksheet",
+          "title": "OPQRST Pain Assessment Guide",
+          "description": "Systematic approach to pain evaluation (Onset, Provocation, Quality, Region, Severity, Timing)",
+          "fileSize": "1.2 MB",
+          "format": "PDF",
+          "downloadUrl": "#"
+        },
+        {
+          "id": 2,
+          "type": "flashcards",
+          "title": "Empathic Response Phrases",
+          "description": "Collection of validated empathic responses for various patient situations",
+          "fileSize": "800 KB",
+          "format": "PDF",
+          "downloadUrl": "#"
+        },
+        {
+          "id": 3,
+          "type": "worksheet",
+          "title": "Breaking Bad News Protocol",
+          "description": "Step-by-step SPIKES method for delivering difficult diagnoses",
+          "fileSize": "1.5 MB",
+          "format": "PDF",
+          "downloadUrl": "#"
+        }
+      ]
+    },
+    {
+      "sectionId": 2,
+      "sectionTitle": "Emergency Scenarios",
+      "resources": [
+        {
+          "id": 4,
+          "type": "simulation",
+          "title": "Trauma Team Communication Simulator",
+          "description": "Interactive scenarios for practicing emergency communication",
+          "fileSize": "5.2 MB",
+          "format": "HTML",
+          "downloadUrl": "#"
+        },
+        {
+          "id": 5,
+          "type": "worksheet",
+          "title": "SBAR Communication Template",
+          "description": "Situation-Background-Assessment-Recommendation format for handoffs",
+          "fileSize": "600 KB",
+          "format": "PDF",
+          "downloadUrl": "#"
+        }
+      ]
+    },
+    {
+      "sectionId": 3,
+      "sectionTitle": "Pediatric Communication",
+      "resources": [
+        {
+          "id": 6,
+          "type": "worksheet",
+          "title": "Age-Appropriate Communication Guide",
+          "description": "Language and techniques adapted for different pediatric age groups",
+          "fileSize": "1.8 MB",
+          "format": "PDF",
+          "downloadUrl": "#"
+        },
+        {
+          "id": 7,
+          "type": "video",
+          "title": "Child-Friendly Medical Explanations",
+          "description": "Examples of explaining procedures and conditions to children",
+          "fileSize": "45 MB",
+          "format": "MP4",
+          "downloadUrl": "#"
+        }
+      ]
+    }
+  ],
+  "quizzes": [
+    {
+      "id": 1,
+      "title": "Patient Communication Fundamentals",
+      "questions": [
+        {
+          "question": "What is the most important first step in patient communication?",
+          "options": [
+            "Introduce yourself and your role",
+            "Ask about their chief complaint",
+            "Review their medical history",
+            "Explain the examination process"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Proper introduction establishes trust and sets professional boundaries for the encounter."
+        },
+        {
+          "question": "When a patient becomes emotional, the best initial response is:",
+          "options": [
+            "Continue with the medical interview",
+            "Offer tissues and wait quietly",
+            "Acknowledge their emotions and ask if they'd like to pause",
+            "Reassure them everything will be okay"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Acknowledging emotions and offering control helps patients feel heard and respected."
+        }
+      ]
+    }
+  ]
+}

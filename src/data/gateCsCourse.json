@@ -1,0 +1,1247 @@
+{
+  "courseTitle": "GATE Computer Science 2025",
+  "courseDescription": "Comprehensive preparation course for GATE Computer Science 2025 based on actual question paper from IIT Roorkee",
+  "sections": [
+    {
+      "id": 1,
+      "title": "General Aptitude",
+      "description": "Verbal ability, quantitative reasoning, and logical thinking skills",
+      "subsections": [
+        {
+          "id": 1,
+          "title": "Verbal Ability and Reading Comprehension",
+          "description": "English language skills including grammar, vocabulary, and comprehension",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Let's start with verbal ability. In GATE, you'll encounter questions that test your command over English language. Consider this sentence: 'Despite his initial hesitation, Rehman's _______ to contribute to the success of the project never wavered.'",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
+                  "alt": "Student studying English grammar and vocabulary"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "I need to find a word that makes sense with 'never wavered' and fits the context of contributing to a project despite hesitation.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Exactly! The key is understanding the logical flow. 'Despite hesitation' suggests a contrast. Something that 'never wavered' indicates consistency and determination. The word 'resolve' fits perfectly - it means determination or firm decision.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "Complete: Despite his initial hesitation, Rehman's _______ to contribute to the success of the project never wavered.",
+                  "options": ["ambivalence", "satisfaction", "resolve", "revolve"],
+                  "correctAnswer": 2,
+                  "explanation": "Resolve means determination. Despite hesitation, his determination never wavered makes logical sense."
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "I see! So I need to look for logical relationships in sentences.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Precisely. Let's try analogies now. These test your ability to see relationships between words. For example: Bird : Nest :: Bee : _______. What's the relationship between Bird and Nest?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "A bird lives in a nest... so I need to find where a bee lives?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Perfect! A bee lives in a hive. So the answer is 'Hive'. Analogies are about finding parallel relationships - the same type of connection between two different pairs of words.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "Bird : Nest :: Bee : _______",
+                  "options": ["Kennel", "Hammock", "Hive", "Lair"],
+                  "correctAnswer": 2,
+                  "explanation": "Just as a bird lives in a nest, a bee lives in a hive."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Logical Reasoning and Critical Thinking",
+          "description": "Analyzing statements, drawing inferences, and logical deduction",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Now let's work on logical reasoning. Consider this statement: 'Even if I had known that you were in the hospital, I would not have gone there to see you', Ramya told Josephine. What can we logically infer?",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=300&fit=crop",
+                  "alt": "Logic and reasoning concepts illustration"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "This seems tricky. The phrase 'even if I had known' suggests a hypothetical situation.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Excellent observation! 'Even if I had known' is a counterfactual conditional - it implies the opposite of what actually happened. If Ramya says 'even if I had known', it suggests she didn't actually know.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "So Ramya did not know that Josephine was in the hospital?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Exactly! The structure 'even if I had known' implies she didn't know. This is a classic example of how English grammar can convey logical meaning. Be careful not to add information that isn't given - we can't conclude anything about their friendship or the reason for hospitalization.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "Based on 'Even if I had known that you were in the hospital, I would not have gone there to see you', what can we infer?",
+                  "options": [
+                    "Ramya knew that Josephine was in the hospital",
+                    "Ramya did not know that Josephine was in the hospital", 
+                    "Ramya and Josephine were once close friends",
+                    "Josephine was in the hospital due to injury"
+                  ],
+                  "correctAnswer": 1,
+                  "explanation": "The counterfactual 'even if I had known' implies she didn't actually know."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Quantitative Reasoning",
+          "description": "Mathematical reasoning and problem-solving with numbers",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Let's explore quantitative reasoning with this problem: If Pe^x = Qe^(-x) for all real values of x, which statement is true about P and Q?",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=300&fit=crop",
+                  "alt": "Mathematical equations and exponential functions"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "This involves exponential functions. How do I approach this?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Great question! Since this equation holds for ALL real values of x, let's try specific values. What if x = 0? Then Pe^0 = Qe^0, which gives us P·1 = Q·1, so P = Q.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "Ah, so P = Q. But what are their actual values?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Let's try x = any non-zero value. If P = Q and Pe^x = Pe^(-x), then e^x = e^(-x). This is only possible when x = 0 for the general case, but since it must hold for ALL x, we need P = Q = 0.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "If Pe^x = Qe^(-x) for all real values of x, which statement is true?",
+                  "options": ["P = Q = 0", "P = Q = 1", "P = 1; Q = -1", "P/Q = 0"],
+                  "correctAnswer": 0,
+                  "explanation": "For the equation to hold for all x, both P and Q must equal 0."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Mathematics and Discrete Structures",
+      "description": "Linear algebra, calculus, discrete mathematics, and graph theory",
+      "subsections": [
+        {
+          "id": 1,
+          "title": "Linear Algebra",
+          "description": "Matrices, eigenvalues, vector spaces, and linear transformations",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Linear algebra is fundamental in computer science. Let's start with matrix operations. Consider A = [[1,2],[2,-1]]. Can you find A^8?",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=300&fit=crop",
+                  "alt": "Matrix operations and linear algebra concepts"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "Computing A^8 directly would involve multiplying the matrix 8 times. That seems tedious!",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "You're right! The efficient way is through diagonalization. First, find the eigenvalues by solving det(A - λI) = 0. For our matrix: det([[1-λ,2],[2,-1-λ]]) = (1-λ)(-1-λ) - 4 = λ² - 5 = 0.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "So λ₁ = √5 and λ₂ = -√5?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Exactly! When diagonalized as A = PDP⁻¹, then A^8 = PD^8P⁻¹. Since D^8 has (√5)^8 and (-√5)^8 on the diagonal, and (√5)^8 = 625, we get A^8 = [[625,0],[0,625]].",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "If A = [[1,2],[2,-1]], then A^8 = ?",
+                  "options": [
+                    "[[25,0],[0,25]]",
+                    "[[125,0],[0,125]]", 
+                    "[[625,0],[0,625]]",
+                    "[[3125,0],[0,3125]]"
+                  ],
+                  "correctAnswer": 2,
+                  "explanation": "Through diagonalization, A^8 = [[625,0],[0,625]]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Discrete Mathematics and Logic",
+          "description": "Mathematical logic, predicate calculus, and proof techniques",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Let's explore mathematical induction. Consider predicate P(x) over natural numbers. Which statement represents valid mathematical induction?",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=400&h=300&fit=crop",
+                  "alt": "Mathematical logic and proof techniques"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "Mathematical induction needs a base case and an inductive step, right?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Perfect! For standard induction: prove P(0), then prove that if P(x) is true, then P(x+1) is also true. This gives us ∀x P(x). The form is: (P(0) ∧ (∀x [P(x) ⇒ P(x + 1)])) ⇒ (∀x P(x)).",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "What about starting from a different base or going backwards?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Good thinking! You could start from any number and prove upwards. But proving backwards (P(x) ⇒ P(x-1)) from any finite starting point won't prove the statement for ALL natural numbers - it would only prove it for numbers up to that point.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "Which represents valid mathematical induction over natural numbers?",
+                  "options": [
+                    "(P(0) ∧ (∀x [P(x) ⇒ P(x + 1)])) ⇒ (∀x P(x))",
+                    "(P(0) ∧ (∀x [P(x) ⇒ P(x - 1)])) ⇒ (∀x P(x))",
+                    "(P(1000) ∧ (∀x [P(x) ⇒ P(x - 1)])) ⇒ (∀x P(x))",
+                    "(P(1000) ∧ (∀x [P(x) ⇒ P(x + 1)])) ⇒ (∀x P(x))"
+                  ],
+                  "correctAnswer": 0,
+                  "explanation": "Valid induction requires base case P(0) and forward step P(x) ⇒ P(x+1)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Data Structures and Algorithms",
+      "description": "Data structures, algorithm design, complexity analysis, and optimization",
+      "subsections": [
+        {
+          "id": 1,
+          "title": "Trees and Tree Algorithms",
+          "description": "Binary trees, binary search trees, and tree traversals",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Let's explore tree structures. Consider a binary tree where every node has either zero or two children. If there are n nodes total, how many have exactly two children?",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1518152006812-edab29b069ac?w=400&h=300&fit=crop",
+                  "alt": "Binary tree data structure illustration"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "This sounds like a full binary tree where each node is either a leaf or has two children.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Exactly! In a full binary tree, let's denote L = number of leaves, I = number of internal nodes (nodes with two children). We have n = L + I. Also, each internal node contributes 2 edges downward, and each non-root node has exactly one edge upward.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "So the number of downward edges equals the number of upward edges?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Right! Downward edges = 2I, Upward edges = n-1 (all nodes except root). So 2I = n-1, which gives us I = (n-1)/2. Since every internal node has exactly two children, the answer is (n-1)/2.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "In a binary tree where every node has either 0 or 2 children, if there are n nodes, how many have exactly 2 children?",
+                  "options": ["(n-2)/2", "(n-1)/2", "n/2", "(n+1)/2"],
+                  "correctAnswer": 1,
+                  "explanation": "In a full binary tree, internal nodes = (n-1)/2 where n is total nodes"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Algorithm Analysis and Design",
+          "description": "Time complexity, space complexity, and algorithm optimization",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Let's discuss algorithm efficiency. You have an unordered list of N distinct integers. What's the minimum number of comparisons to find an element that is NOT the largest?",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
+                  "alt": "Algorithm analysis and complexity illustration"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "To find the largest element, I'd need N-1 comparisons. But the question asks for any element that's NOT the largest.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Great insight! You don't need to find the largest element. Think simpler - what if you just compare any two elements from the list?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "Ah! If I compare any two elements, the smaller one is guaranteed to NOT be the largest element in the entire list!",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Perfect! You can pick any two elements, compare them (1 comparison), and the smaller one is definitely not the largest in the list. So the minimum is just 1 comparison. This is a great example of how clever thinking can drastically reduce complexity.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "Minimum comparisons to find an element that is NOT the largest in an unordered list of N distinct integers?",
+                  "options": ["1", "N-1", "N", "2N-1"],
+                  "correctAnswer": 0,
+                  "explanation": "Compare any two elements; the smaller one is guaranteed not to be the largest"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Computer Networks",
+      "description": "Network protocols, TCP/IP, routing, and network security",
+      "subsections": [
+        {
+          "id": 1,
+          "title": "Network Protocols",
+          "description": "Understanding ARP, TCP, IP and other fundamental protocols",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Let's understand network protocols. Consider these statements about ARP and TCP: (i) ARP provides mapping from IP address to hardware address. (ii) A TCP segment cannot carry both data and acknowledgment simultaneously.",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop",
+                  "alt": "Network protocols and communication illustration"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "I know ARP stands for Address Resolution Protocol. It maps IP addresses to MAC addresses, right?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Exactly! Statement (i) is TRUE. ARP resolves logical IP addresses to physical MAC addresses, enabling communication within a local network. Now, what about statement (ii) regarding TCP?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "Hmm, I think TCP can actually carry data and acknowledgments together. Isn't that called piggybacking?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Outstanding! Statement (ii) is FALSE. TCP indeed supports piggybacking - acknowledgments for received data can be included along with new data being sent. This makes TCP very efficient. So the answer is '(i) is TRUE and (ii) is FALSE'.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "Which statement about ARP and TCP is correct?",
+                  "options": [
+                    "Both (i) and (ii) are TRUE",
+                    "(i) is TRUE and (ii) is FALSE",
+                    "(i) is FALSE and (ii) is TRUE", 
+                    "Both (i) and (ii) are FALSE"
+                  ],
+                  "correctAnswer": 1,
+                  "explanation": "ARP maps IP to MAC addresses (TRUE), TCP supports piggybacking (statement ii is FALSE)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Routing Algorithms",
+          "description": "Distance vector and link state routing protocols",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Routing algorithms are crucial for network operation. Distance vector routing uses which algorithm, and link state routing uses which algorithm?",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=400&h=300&fit=crop",
+                  "alt": "Network routing and algorithms illustration"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "I think distance vector has something to do with the Bellman-Ford algorithm?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Correct! Distance vector routing is based on the Bellman-Ford algorithm. It maintains distance tables and periodically exchanges them with neighbors. What about link state routing?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "Link state routing... doesn't it build a complete topology map? That sounds like Dijkstra's algorithm for shortest paths.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Excellent! Link state routing uses Dijkstra's algorithm. Each router builds a complete network topology and computes shortest paths to all destinations. So the matching is: Distance vector → Bellman-Ford, Link state → Dijkstra.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "Match routing protocols with algorithms: (i) Distance vector (ii) Link state",
+                  "options": [
+                    "(i)→(a) and (ii)→(b)",
+                    "(i)→(a) and (ii)→(a)",
+                    "(i)→(b) and (ii)→(a)",
+                    "(i)→(b) and (ii)→(b)"
+                  ],
+                  "correctAnswer": 0,
+                  "explanation": "Distance vector uses Bellman-Ford (a), Link state uses Dijkstra (b)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Operating Systems",
+      "description": "Process management, memory management, synchronization, and deadlocks",
+      "subsections": [
+        {
+          "id": 1,
+          "title": "CPU Scheduling",
+          "description": "Scheduling algorithms and performance metrics",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Let's work through a CPU scheduling problem. Four processes P1, P2, P3, P4 arrive at times 0, 1, 2, 8 ms with execution times 10, 13, 6, 9 ms respectively. Using SRTF (Shortest Remaining Time First), what's the average turnaround time?",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1551808525-51a94da548ce?w=400&h=300&fit=crop",
+                  "alt": "CPU scheduling and process management"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "SRTF means we always run the process with the shortest remaining time. This sounds complex to track!",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Let's trace through step by step. At t=0: P1 starts (remaining=10). At t=1: P2 arrives (remaining=13), P1 continues (remaining=9). At t=2: P3 arrives (remaining=6), preempts P1 since 6<9. At t=8: P3 finishes, P4 arrives (remaining=9), P1 resumes since 8=9 but P1 arrived first.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "This is getting complicated. How do I systematically solve this?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Create a timeline! Execution: P1(0-1), P1(1-2), P3(2-8), P1(8-15), P4(15-24), P2(24-37). Completion times: P1=15, P2=37, P3=8, P4=24. Turnaround times: P1=15-0=15, P2=37-1=36, P3=8-2=6, P4=24-8=16. Average = (15+36+6+16)/4 = 73/4 = 18.25 ≈ 19.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "Average turnaround time for the given SRTF scheduling scenario?",
+                  "options": ["22", "15", "37", "19"],
+                  "correctAnswer": 3,
+                  "explanation": "Calculate completion times, then turnaround times, then average: (15+36+6+16)/4 ≈ 19"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Deadlock Detection and Prevention",
+          "description": "Resource allocation, deadlock conditions, and resolution strategies",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Deadlock analysis requires understanding resource allocation graphs. We have processes P1,P2,P3,P4 and resources R1,R2,R3,R4. Resources are assigned: R1→P1, R2→P2, R3→P3, R4→P4. Requests are: P1→R2, P2→R3, P3→R1, P2→R4, P4→R2.",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=400&h=300&fit=crop",
+                  "alt": "Deadlock detection and resource allocation graphs"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "I need to check for cycles in this resource allocation graph. Let me trace the dependencies.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Good approach! Let's trace: P1 waits for R2 (held by P2) → P2 waits for R3 (held by P3) → P3 waits for R1 (held by P1). That's a cycle: P1→P2→P3→P1. Also, P2 waits for R4 (held by P4) → P4 waits for R2 (held by P2). Another cycle: P2→P4→P2.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "So we have deadlock! What happens if we abort different processes?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Let's analyze: Aborting P2 breaks both cycles (P1→P2→P3→P1 and P2→P4→P2), making the system deadlock-free. Aborting P3 only breaks the first cycle but not P2→P4→P2. So aborting P2 resolves the deadlock completely.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "In the given resource allocation scenario, which action makes the system deadlock-free?",
+                  "options": [
+                    "Aborting P1",
+                    "Aborting P3", 
+                    "Aborting P2",
+                    "Aborting P1 and P4"
+                  ],
+                  "correctAnswer": 2,
+                  "explanation": "Aborting P2 breaks both deadlock cycles in the resource allocation graph"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Database Management Systems",
+      "description": "Relational databases, normalization, SQL, and transaction management",
+      "subsections": [
+        {
+          "id": 1,
+          "title": "Database Normalization",
+          "description": "Normal forms and functional dependencies",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Let's examine database normalization. Consider R1(A,B,C,D,E) with functional dependencies: D→E, EA→B, EB→C. Is this relation in Third Normal Form (3NF)?",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=400&h=300&fit=crop",
+                  "alt": "Database design and normalization concepts"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "For 3NF, I need to check if there are any transitive dependencies on non-prime attributes, right?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Exactly! First, let's find the candidate keys. From EA→B and EB→C, we can derive that EA→BC. Combined with D→E, we need to check what combinations can determine all attributes. Let's try EAD: it can determine E (trivial), A (given), D (given), B (from EA→B), C (from EA→B then EB→C). So EAD is a superkey.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "What about checking if this is minimal?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Good question! Can EA alone determine all attributes? EA→B, and with B we get EB→C. But we can't get D from EA alone. Can EAD be reduced? If we remove D, we can't determine D from EA. So EAD is indeed a candidate key. Since all functional dependencies either have the left side as part of a candidate key or the right side is a prime attribute, this relation is in 3NF.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "Is R1(A,B,C,D,E) with FDs {D→E, EA→B, EB→C} in 3NF?",
+                  "options": ["R1 is in 3NF", "R1 is NOT in 3NF", "Cannot determine", "Invalid FD set"],
+                  "correctAnswer": 0,
+                  "explanation": "The relation satisfies 3NF conditions - no non-prime attribute is transitively dependent on any candidate key"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "SQL and Query Optimization",
+          "description": "Complex SQL queries and performance considerations",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Let's write SQL queries. Given tables Students(rollno, name, age, cgpa), Courses(courseno, cname, credits), and Enrolled(rollno, courseno, grade), how do you find names of students enrolled in course 1470?",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
+                  "alt": "SQL database queries and optimization"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "I need to join Students and Enrolled tables where courseno = 1470. Would this work: SELECT S.name FROM Students S, Enrolled E WHERE S.rollno = E.rollno AND E.courseno = 1470?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Perfect! That's one correct approach. We can also use EXISTS: SELECT S.name FROM Students S WHERE EXISTS (SELECT * FROM Enrolled E WHERE E.courseno = 1470 AND E.rollno = S.rollno). Or even use COUNT: SELECT S.name FROM Students S WHERE 0 < (SELECT COUNT(*) FROM Enrolled E WHERE E.courseno = 1470 AND E.rollno = S.rollno).",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "What about using NATURAL JOIN?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Good thinking! SELECT S.name FROM Students S NATURAL JOIN Enrolled E WHERE E.courseno = 1470 would also work, since both tables have rollno as a common column. However, be careful with NATURAL JOIN - it joins on ALL common column names, which might not always be what you want.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "Which SQL queries correctly find student names enrolled in course 1470?",
+                  "options": [
+                    "Only the EXISTS query",
+                    "Only the JOIN query", 
+                    "Both EXISTS and COUNT queries",
+                    "All mentioned approaches"
+                  ],
+                  "correctAnswer": 3,
+                  "explanation": "EXISTS, explicit JOIN, COUNT subquery, and NATURAL JOIN all work for this query"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Theory of Computation",
+      "description": "Automata theory, formal languages, and computational complexity",
+      "subsections": [
+        {
+          "id": 1,
+          "title": "Automata and Language Classes",
+          "description": "Finite automata, pushdown automata, and language hierarchy",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Let's explore the language hierarchy. Which languages can be accepted by a Deterministic Pushdown Automaton (DPDA)?",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=400&h=300&fit=crop",
+                  "alt": "Automata theory and formal languages illustration"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "I know that pushdown automata are more powerful than finite automata because they have a stack. But what's the difference between deterministic and non-deterministic PDAs?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Great question! Non-deterministic PDAs (NPDAs) can accept all context-free languages. However, Deterministic PDAs (DPDAs) are less powerful - they can only accept a proper subset of context-free languages. But DPDAs are still more powerful than finite automata.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "So what languages can DPDAs definitely accept?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "DPDAs can accept all regular languages (since they're more powerful than finite automata), but they cannot accept all context-free languages. For example, the language {ww^R | w ∈ {a,b}*} (palindromes) requires nondeterminism to know where the middle is. So the correct answer is 'Any regular language.'",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "Which languages can be accepted by a Deterministic Pushdown Automaton?",
+                  "options": [
+                    "Any regular language",
+                    "Any context-free language",
+                    "Any language accepted by NPDA",
+                    "Any decidable language"
+                  ],
+                  "correctAnswer": 0,
+                  "explanation": "DPDAs can accept all regular languages but not all context-free languages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Decidability and Computational Problems",
+          "description": "Decidable and undecidable problems in formal language theory",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Let's examine decidability in context-free grammars. Given CFGs G1 and G2, and a regular expression R, which questions are decidable?",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
+                  "alt": "Computational complexity and decidability theory"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "I think some problems with CFGs are undecidable. Is checking if two CFGs generate the same language decidable?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Excellent intuition! Checking if L(G1) = L(G2) for two CFGs is indeed undecidable. Similarly, checking if L(G1) ∩ L(G2) = ∅ is also undecidable because the intersection of two CFLs may not be context-free.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "What about comparing a CFG with a regular language?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Good question! Comparing a CFL with a regular language has mixed results. But there's one that's always decidable: checking if L(G) = ∅ (emptiness problem). We can construct an algorithm to determine if a CFG generates any strings at all. This involves finding which non-terminals can derive terminal strings.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "Which question about CFGs G1, G2 and regular expression R is decidable?",
+                  "options": [
+                    "Is L(G1) = L(G2)?",
+                    "Is L(G1) ∩ L(G2) = ∅?", 
+                    "Is L(G1) = L(R)?",
+                    "Is L(G1) = ∅?"
+                  ],
+                  "correctAnswer": 3,
+                  "explanation": "The emptiness problem for CFGs is decidable, while equivalence and intersection problems are not"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Computer Organization and Architecture",
+      "description": "Processor design, memory systems, pipelining, and computer arithmetic",
+      "subsections": [
+        {
+          "id": 1,
+          "title": "Memory Systems and Cache Design",
+          "description": "Cache organization, memory hierarchy, and performance optimization",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Let's analyze cache design. A direct-mapped cache uses 4 bits for tag and 12 bits for index, with 1-byte blocks. What are the main memory and cache sizes?",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1518152006812-edab29b069ac?w=400&h=300&fit=crop",
+                  "alt": "Computer memory hierarchy and cache systems"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "I need to figure out the address structure first. If we have 4 bits for tag and 12 bits for index, what about the offset?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Good thinking! Since each cache block is 1 byte, we need 0 bits for byte offset within a block (2^0 = 1 byte). So the total address is 4 (tag) + 12 (index) + 0 (offset) = 16 bits.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "So with 16-bit addresses, the main memory size is 2^16 = 64KB. What about cache size?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Perfect! Main memory = 2^16 bytes = 64KB. For cache size: we have 12 index bits, so 2^12 = 4096 cache blocks. Each block is 1 byte, so cache size = 4096 × 1 = 4KB. The answer is 64KB main memory and 4KB cache.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "With 4-bit tag, 12-bit index, 1-byte blocks, what are memory sizes?",
+                  "options": [
+                    "64 KB and 4 KB",
+                    "128 KB and 16 KB",
+                    "64 KB and 8 KB", 
+                    "128 KB and 6 KB"
+                  ],
+                  "correctAnswer": 0,
+                  "explanation": "16-bit address = 64KB main memory; 2^12 blocks × 1 byte = 4KB cache"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Computer Arithmetic and Digital Logic",
+          "description": "Number systems, arithmetic operations, and logic design",
+          "conversations": [
+            {
+              "speaker": "Teacher",
+              "text": "Let's work with Booth's multiplication algorithm. Given M: 1100 1101 1110 1101 and Q: 1010 0100 1010 1010, how many add/subtract operations are needed?",
+              "sidebarContent": [
+                {
+                  "type": "image",
+                  "src": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=300&fit=crop",
+                  "alt": "Digital arithmetic and Booth's algorithm illustration"
+                }
+              ]
+            },
+            {
+              "speaker": "Learner",
+              "text": "Booth's algorithm looks at pairs of bits in the multiplier to decide whether to add, subtract, or do nothing, right?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Exactly! We examine bits Qi and Qi-1. If Qi Qi-1 = 01, we add M. If Qi Qi-1 = 10, we subtract M. If Qi Qi-1 = 00 or 11, we do nothing. Let's trace through Q = 1010 0100 1010 1010 with an initial Q-1 = 0.",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Learner",
+              "text": "So I need to examine each adjacent pair from right to left?",
+              "sidebarContent": null
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Right! Q with Q-1=0 gives us: ...10(10), 01(01), 10(10), 00(01), 01(10), 00(10), 10(10), 00(10). The transitions 01→add, 10→subtract occur 8 times total. So we perform 8 add/subtract operations.",
+              "sidebarContent": [
+                {
+                  "type": "quiz",
+                  "question": "Booth's algorithm on given M and Q requires how many add/subtract operations?",
+                  "options": ["6", "7", "8", "9"],
+                  "correctAnswer": 2,
+                  "explanation": "Examining bit pairs in Q reveals 8 transitions requiring add/subtract operations"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0", 
+    "lastUpdated": "2024-01-15",
+    "totalSections": 8,
+    "totalSubsections": 16,
+    "totalConversations": 48,
+    "basedOn": "GATE CS 2025 Question Paper - IIT Roorkee",
+    "examDate": "February 2025",
+    "totalQuestions": 65,
+    "duration": "3 hours"
+  },
+  "config": {
+    "storagePrefix": "gate_cs_course",
+    "courseTitle": "GATE Computer Science 2025",
+    "subjectName": "Computer Science",
+    "notesTitle": "GATE CS Study Notes",
+    "notesSubtitle": "Comprehensive notes for GATE CS preparation",
+    "notesPlaceholder": "Start taking notes for GATE CS preparation...\n\n💡 Study Tips:\n- Focus on understanding concepts, not just memorizing\n- Practice numerical problems daily\n- Time management is crucial - 2-3 minutes per 1-mark question\n- Review previous year patterns\n- Make formula sheets for quick revision",
+    "resourcesTitle": "GATE CS Resources",
+    "resourcesSubtitle": "Previous papers, practice sets, and reference materials"
+  },
+  "resources": [
+    {
+      "sectionId": 1,
+      "sectionTitle": "General Aptitude",
+      "resources": [
+        {
+          "id": 1,
+          "type": "worksheet",
+          "title": "Verbal Ability Practice Set",
+          "description": "Sentence completion, analogies, and reading comprehension",
+          "fileSize": "2.3 MB",
+          "format": "PDF",
+          "downloadUrl": "#"
+        },
+        {
+          "id": 2,
+          "type": "flashcards",
+          "title": "Quantitative Aptitude Formulas",
+          "description": "Essential formulas for numerical reasoning",
+          "fileSize": "1.8 MB", 
+          "format": "PDF",
+          "downloadUrl": "#"
+        }
+      ]
+    },
+    {
+      "sectionId": 2,
+      "sectionTitle": "Mathematics and Discrete Structures",
+      "resources": [
+        {
+          "id": 3,
+          "type": "worksheet",
+          "title": "Linear Algebra Problem Set",
+          "description": "Matrix operations, eigenvalues, and vector spaces",
+          "fileSize": "3.1 MB",
+          "format": "PDF",
+          "downloadUrl": "#"
+        },
+        {
+          "id": 4,
+          "type": "reference",
+          "title": "Discrete Mathematics Reference",
+          "description": "Logic, set theory, and combinatorics",
+          "fileSize": "4.2 MB",
+          "format": "PDF", 
+          "downloadUrl": "#"
+        }
+      ]
+    },
+    {
+      "sectionId": 3,
+      "sectionTitle": "Data Structures and Algorithms",
+      "resources": [
+        {
+          "id": 5,
+          "type": "code",
+          "title": "Algorithm Implementations",
+          "description": "C/Python implementations of key algorithms",
+          "fileSize": "2.7 MB",
+          "format": "ZIP",
+          "downloadUrl": "#"
+        },
+        {
+          "id": 6,
+          "type": "worksheet",
+          "title": "Complexity Analysis Worksheet",
+          "description": "Time and space complexity practice problems",
+          "fileSize": "2.1 MB",
+          "format": "PDF",
+          "downloadUrl": "#"
+        }
+      ]
+    },
+    {
+      "sectionId": 4,
+      "sectionTitle": "Computer Networks",
+      "resources": [
+        {
+          "id": 7,
+          "type": "reference",
+          "title": "Network Protocols Reference",
+          "description": "TCP/IP, OSI model, and routing protocols",
+          "fileSize": "3.5 MB",
+          "format": "PDF",
+          "downloadUrl": "#"
+        }
+      ]
+    },
+    {
+      "sectionId": 5,
+      "sectionTitle": "Operating Systems", 
+      "resources": [
+        {
+          "id": 8,
+          "type": "worksheet",
+          "title": "Process Scheduling Problems",
+          "description": "FCFS, SJF, SRTF, Round Robin examples",
+          "fileSize": "2.8 MB",
+          "format": "PDF",
+          "downloadUrl": "#"
+        },
+        {
+          "id": 9,
+          "type": "simulator",
+          "title": "Deadlock Detection Simulator",
+          "description": "Interactive tool for resource allocation graphs",
+          "fileSize": "1.5 MB",
+          "format": "HTML",
+          "downloadUrl": "#"
+        }
+      ]
+    },
+    {
+      "sectionId": 6,
+      "sectionTitle": "Database Management Systems",
+      "resources": [
+        {
+          "id": 10,
+          "type": "worksheet",
+          "title": "SQL Query Practice",
+          "description": "Complex joins, subqueries, and optimization",
+          "fileSize": "3.2 MB",
+          "format": "PDF",
+          "downloadUrl": "#"
+        },
+        {
+          "id": 11,
+          "type": "tool",
+          "title": "Normalization Checker",
+          "description": "Tool to verify normal forms",
+          "fileSize": "0.8 MB",
+          "format": "HTML",
+          "downloadUrl": "#"
+        }
+      ]
+    },
+    {
+      "sectionId": 7,
+      "sectionTitle": "Theory of Computation",
+      "resources": [
+        {
+          "id": 12,
+          "type": "reference",
+          "title": "Automata Theory Reference",
+          "description": "FSA, PDA, and Turing machines",
+          "fileSize": "4.1 MB",
+          "format": "PDF",
+          "downloadUrl": "#"
+        }
+      ]
+    },
+    {
+      "sectionId": 8,
+      "sectionTitle": "Computer Organization and Architecture", 
+      "resources": [
+        {
+          "id": 13,
+          "type": "simulator",
+          "title": "Cache Memory Simulator",
+          "description": "Visualize cache behavior and performance",
+          "fileSize": "2.2 MB",
+          "format": "HTML",
+          "downloadUrl": "#"
+        },
+        {
+          "id": 14,
+          "type": "worksheet",
+          "title": "Digital Logic Practice",
+          "description": "Boolean algebra and circuit design",
+          "fileSize": "2.9 MB",
+          "format": "PDF",
+          "downloadUrl": "#"
+        }
+      ]
+    }
+  ],
+  "quizzes": {
+    "chapterTitle": "GATE Computer Science 2025",
+    "totalQuestions": 65,
+    "formats": {
+      "multipleChoice": {
+        "title": "GATE-Style MCQs",
+        "description": "Multiple choice questions based on GATE CS 2025 pattern",
+        "questions": [
+          {
+            "id": 1,
+            "question": "Which ONE of the following is A^8 for matrix A = [[1,2],[2,-1]]?",
+            "options": [
+              "[[25,0],[0,25]]",
+              "[[125,0],[0,125]]",
+              "[[625,0],[0,625]]", 
+              "[[3125,0],[0,3125]]"
+            ],
+            "correctAnswer": 2,
+            "explanation": "Using diagonalization, A^8 results in [[625,0],[0,625]]",
+            "difficulty": "medium",
+            "section": "Mathematics",
+            "marks": 1
+          },
+          {
+            "id": 2,
+            "question": "Consider a binary tree where every node has either zero or two children. If there are n nodes, how many have exactly two children?",
+            "options": ["(n-2)/2", "(n-1)/2", "n/2", "(n+1)/2"],
+            "correctAnswer": 1,
+            "explanation": "In a full binary tree with n nodes, internal nodes = (n-1)/2",
+            "difficulty": "medium", 
+            "section": "Data Structures",
+            "marks": 1
+          },
+          {
+            "id": 3,
+            "question": "Which statement about network protocols is correct?",
+            "options": [
+              "Both ARP and TCP statements are true",
+              "ARP maps IP to MAC (true), TCP cannot piggyback (false)",
+              "ARP doesn't map addresses (false), TCP cannot piggyback (true)",
+              "Both statements are false"
+            ],
+            "correctAnswer": 1,
+            "explanation": "ARP maps IP to hardware addresses (true), TCP supports piggybacking (statement 2 is false)",
+            "difficulty": "easy",
+            "section": "Computer Networks", 
+            "marks": 1
+          }
+        ]
+      },
+      "numerical": {
+        "title": "Numerical Answer Questions",
+        "description": "Questions requiring numerical calculations",
+        "questions": [
+          {
+            "id": 1,
+            "question": "Given processes P1, P2, P3, P4 arriving at times 0, 1, 2, 8 ms with execution times 10, 13, 6, 9 ms respectively, using SRTF scheduling, what is the average turnaround time in milliseconds?",
+            "answer": 19,
+            "explanation": "Calculate completion times, then turnaround times: (15+36+6+16)/4 = 19",
+            "difficulty": "hard",
+            "section": "Operating Systems",
+            "marks": 2
+          },
+          {
+            "id": 2,
+            "question": "For Booth's multiplication with M: 1100110111101101 and Q: 1010010010101010, how many add/subtract operations are needed?",
+            "answer": 8,
+            "explanation": "Examining bit pair transitions in Q reveals 8 add/subtract operations",
+            "difficulty": "hard",
+            "section": "Computer Organization",
+            "marks": 1
+          }
+        ]
+      },
+      "multipleSelect": {
+        "title": "Multiple Select Questions", 
+        "description": "Questions with multiple correct answers",
+        "questions": [
+          {
+            "id": 1,
+            "question": "Which of the following statements about database normalization are TRUE?",
+            "options": [
+              "R1(A,B,C,D,E) with given FDs is in 3NF",
+              "R2(A,B,C,D) with given FDs is in 3NF", 
+              "R1 is NOT in 3NF",
+              "R2 is NOT in 3NF"
+            ],
+            "correctAnswers": [0, 1],
+            "explanation": "Both R1 and R2 satisfy 3NF conditions based on their functional dependencies",
+            "difficulty": "hard",
+            "section": "Database Systems",
+            "marks": 2
+          }
+        ]
+      }
+    }
+  },
+  "examInfo": {
+    "pattern": {
+      "totalQuestions": 65,
+      "duration": "3 hours",
+      "marking": {
+        "correct": "+1 or +2 marks",
+        "incorrect": "-1/3 or -2/3 marks", 
+        "unattempted": "0 marks"
+      },
+      "sections": {
+        "generalAptitude": {
+          "questions": 10,
+          "marks": 15
+        },
+        "technical": {
+          "questions": 55,
+          "marks": 85
+        }
+      }
+    },
+    "syllabus": [
+      "Engineering Mathematics",
+      "Digital Logic", 
+      "Computer Organization and Architecture",
+      "Programming and Data Structures",
+      "Algorithms",
+      "Theory of Computation",
+      "Compiler Design",
+      "Operating System",
+      "Databases",
+      "Computer Networks"
+    ],
+    "tips": [
+      "Focus on conceptual understanding over rote learning",
+      "Practice previous year questions regularly",
+      "Time management is crucial - don't spend too long on any question",
+      "Negative marking exists - avoid random guessing",
+      "General Aptitude is scoring - don't neglect it",
+      "Keep track of important formulas and theorems"
+    ]
+  }
+}

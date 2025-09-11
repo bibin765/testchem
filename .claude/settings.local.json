@@ -5,7 +5,8 @@
       "Bash(npm run dev:*)",
       "Bash(npm run build:*)",
       "WebFetch(domain:docs.google.com)",
-      "Read(//c/Users/bibin/Downloads/CS/CS/**)"
+      "Read(//c/Users/bibin/Downloads/CS/CS/**)",
+      "WebSearch"
     ],
     "deny": [],
     "ask": []

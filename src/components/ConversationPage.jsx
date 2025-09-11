@@ -2,12 +2,14 @@ import React, { useState, useEffect, useRef } from "react";
 import ReactMarkdown from 'react-markdown';
 import ThreeBackground from './ThreeBackground';
 import QuizMode from './QuizMode';
-import courseDataJson from "../data/courseData.json";
+import courseDataJson from "../data/healthcareCourse.json";
 
 const courseData = courseDataJson.sections;
 const courseConfig = courseDataJson.config;
 const resourcesData = courseDataJson.resources;
 const quizData = courseDataJson.quizzes;
+const courseTitle = courseDataJson.courseTitle;
+const subjectName = courseDataJson.config?.subjectName || 'Subject';
 
 // Flatten the data for navigation
 const getAllConversations = () => {
@@ -57,7 +59,7 @@ const callOpenAIAPI = async (question, conversationContext) => {
         messages: [
           {
             role: 'system',
-            content: `You are a chemistry tutor with access to a chemistry textbook via RAG. The student is currently in a conversation about chemistry. Current context: ${conversationContext}. Please provide a helpful, educational response to their question.`
+            content: `You are a ${subjectName} tutor with access to a ${subjectName} textbook via RAG. The student is currently in a conversation about ${subjectName}. Current context: ${conversationContext}. Please provide a helpful, educational response to their question.`
           },
           {
             role: 'user',
@@ -760,7 +762,7 @@ export default function ConversationPage() {
       // Add title
       pdf.setFontSize(20);
       pdf.setFont(undefined, 'bold');
-      pdf.text('Chemistry Course Notes', margin, margin + 10);
+      pdf.text(`${courseTitle} Notes`, margin, margin + 10);
       
       // Add timestamp
       pdf.setFontSize(12);
@@ -828,7 +830,7 @@ export default function ConversationPage() {
         pdf.setFontSize(10);
         pdf.setFont(undefined, 'normal');
         pdf.text(
-          `Chemistry Course Notes - Page ${i} of ${totalPages}`, 
+          `${courseTitle} Notes - Page ${i} of ${totalPages}`, 
           pageWidth / 2, 
           pageHeight - 10, 
           { align: 'center' }
@@ -836,7 +838,7 @@ export default function ConversationPage() {
       }
       
       // Download PDF
-      pdf.save(`chemistry-notes-${date.replace(/[^0-9]/g, '')}.pdf`);
+      pdf.save(`${subjectName.toLowerCase().replace(/\s+/g, '-')}-notes-${date.replace(/[^0-9]/g, '')}.pdf`);
       
     } catch (error) {
       console.error('Failed to generate PDF:', error);
@@ -883,7 +885,7 @@ export default function ConversationPage() {
       // Title page
       pdf.setFontSize(24);
       pdf.setFont(undefined, 'bold');
-      pdf.text('Chemistry Course Conversation', pageWidth / 2, yPosition, { align: 'center' });
+      pdf.text(`${courseTitle} Conversation`, pageWidth / 2, yPosition, { align: 'center' });
       yPosition += 15;
 
       pdf.setFontSize(14);
@@ -1056,7 +1058,7 @@ export default function ConversationPage() {
         pdf.setFontSize(10);
         pdf.setFont(undefined, 'normal');
         pdf.text(
-          `Chemistry Course Conversation - Page ${i} of ${totalPages}`, 
+          `${courseTitle} Conversation - Page ${i} of ${totalPages}`, 
           pageWidth / 2, 
           pageHeight - 10, 
           { align: 'center' }
@@ -1064,7 +1066,7 @@ export default function ConversationPage() {
       }
 
       // Download PDF
-      const fileName = `chemistry-conversation-${new Date().toISOString().split('T')[0]}.pdf`;
+      const fileName = `${subjectName.toLowerCase().replace(/\s+/g, '-')}-conversation-${new Date().toISOString().split('T')[0]}.pdf`;
       pdf.save(fileName);
       
     } catch (error) {
@@ -1329,7 +1331,7 @@ export default function ConversationPage() {
             <h1 className={`font-medium leading-relaxed ${
               showRightAssets ? 'text-lg sm:text-xl lg:text-2xl' : 'text-xl sm:text-2xl lg:text-3xl'
             } break-words`}>
-              Class 11 : Chapter 1: Some basic concepts of chemistry
+              {courseTitle}
             </h1>
           </div>
           
@@ -1610,7 +1612,7 @@ export default function ConversationPage() {
           
           <div className="p-4 border-t border-gray-800">
             <button
-              onClick={() => window.open("https://example.com/chemistry-chapter1.pdf", '_blank')}
+              onClick={() => window.open("https://example.com/sample-chapter.pdf", '_blank')}
               className="w-full flex items-center gap-3 px-4 py-3 bg-gray-800 hover:bg-gray-700 border border-gray-700 hover:border-gray-600 text-gray-200 hover:text-white rounded-lg transition-all duration-300 group"
             >
               <svg className="w-5 h-5 text-red-400 group-hover:text-red-300 transition-colors flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
@@ -1619,7 +1621,7 @@ export default function ConversationPage() {
               </svg>
               <div className="flex-1 text-left">
                 <div className="font-medium text-sm">Source Material</div>
-                <div className="text-xs text-gray-400 group-hover:text-gray-300">Chemistry Chapter 1.pdf</div>
+                <div className="text-xs text-gray-400 group-hover:text-gray-300">Sample Chapter.pdf</div>
               </div>
               <svg className="w-4 h-4 text-gray-400 group-hover:text-gray-300 transition-colors flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
@@ -3154,7 +3156,7 @@ export default function ConversationPage() {
                             </svg>
                           </div>
                           <h3 className="text-lg font-medium text-white mb-2">Start a conversation</h3>
-                          <p className="text-gray-400 mb-4">Ask the AI assistant about the current topic or any chemistry concepts</p>
+                          <p className="text-gray-400 mb-4">Ask the AI assistant about the current topic or any {subjectName} concepts</p>
                           <div className="max-w-md">
                             <h4 className="text-sm font-medium text-gray-300 mb-2">Example questions:</h4>
                             <ul className="text-sm text-gray-500 space-y-1 text-left">
@@ -3196,7 +3198,7 @@ export default function ConversationPage() {
                       type="text"
                       value={userQuestion}
                       onChange={(e) => setUserQuestion(e.target.value)}
-                      placeholder="Ask about the current topic or any chemistry concepts..."
+                      placeholder={`Ask about the current topic or any ${subjectName} concepts...`}
                       className="flex-1 bg-gray-800 border border-gray-700 text-white px-4 py-3 rounded-xl focus:outline-none focus:border-emerald-500"
                       onKeyPress={(e) => {
                         if (e.key === 'Enter' && !isLoadingAI) {

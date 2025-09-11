@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import ReactMarkdown from 'react-markdown';
-import ThreeBackground from "./ThreeBackground";
+import ThreeBackground from './ThreeBackground';
 import courseDataJson from "../data/courseData.json";
 
 const courseData = courseDataJson.sections;
@@ -188,6 +188,16 @@ export default function ConversationPage({ onSpeakerChange }) {
   const [currentNote, setCurrentNote] = useState({ title: '', content: '', timestamp: null, id: null });
   const [editingNoteId, setEditingNoteId] = useState(null);
   const [showNoteInput, setShowNoteInput] = useState(false);
+  
+  // Audio player state
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+  const [audioVolume, setAudioVolume] = useState(0.7);
+  const [audioCurrentTime, setAudioCurrentTime] = useState(0);
+  const [audioDuration, setAudioDuration] = useState(0);
+  const [isAudioMuted, setIsAudioMuted] = useState(false);
+  const [audioAutoPlay, setAudioAutoPlay] = useState(true);
+  const audioRef = useRef(null);
+  
   const [contentStats, setContentStats] = useState(() => {
     const defaultStats = {
       quizzesCompleted: new Set(),
@@ -562,6 +572,101 @@ export default function ConversationPage({ onSpeakerChange }) {
     handleQuestionSubmit();
   };
 
+  // Audio player functionality
+  const playAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.play();
+      setIsAudioPlaying(true);
+    }
+  };
+
+  const pauseAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      setIsAudioPlaying(false);
+    }
+  };
+
+  const toggleAudioPlayPause = () => {
+    if (isAudioPlaying) {
+      pauseAudio();
+    } else {
+      playAudio();
+    }
+  };
+
+  const handleAudioTimeUpdate = () => {
+    if (audioRef.current) {
+      setAudioCurrentTime(audioRef.current.currentTime);
+    }
+  };
+
+  const handleAudioLoadedMetadata = () => {
+    if (audioRef.current) {
+      setAudioDuration(audioRef.current.duration);
+    }
+  };
+
+  const handleAudioEnded = () => {
+    setIsAudioPlaying(false);
+    setAudioCurrentTime(0);
+  };
+
+  const handleAudioSeek = (time) => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = time;
+      setAudioCurrentTime(time);
+    }
+  };
+
+  const handleVolumeChange = (volume) => {
+    setAudioVolume(volume);
+    if (audioRef.current) {
+      audioRef.current.volume = volume;
+    }
+  };
+
+  const toggleMute = () => {
+    setIsAudioMuted(!isAudioMuted);
+    if (audioRef.current) {
+      audioRef.current.muted = !isAudioMuted;
+    }
+  };
+
+  const formatTime = (time) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  };
+
+  // Auto-play audio when message changes
+  useEffect(() => {
+    const currentMessage = dialogue[currentIndex];
+    if (currentMessage?.audioUrl && audioAutoPlay && audioRef.current) {
+      // Reset audio state
+      setIsAudioPlaying(false);
+      setAudioCurrentTime(0);
+      
+      // Load new audio
+      audioRef.current.src = currentMessage.audioUrl;
+      audioRef.current.load();
+      
+      // Play after a short delay to ensure loading
+      setTimeout(() => {
+        if (audioRef.current) {
+          audioRef.current.play().catch(console.error);
+          setIsAudioPlaying(true);
+        }
+      }, 100);
+    } else if (!currentMessage?.audioUrl) {
+      // No audio for this message, stop any playing audio
+      if (audioRef.current) {
+        audioRef.current.pause();
+        setIsAudioPlaying(false);
+      }
+    }
+  }, [currentIndex, audioAutoPlay]);
+
   // Notes functionality - Multiple Notes System
   const saveNote = () => {
     if (!currentNote.title.trim() || !currentNote.content.trim()) {
@@ -908,6 +1013,21 @@ export default function ConversationPage({ onSpeakerChange }) {
 
   return (
     <div className="h-screen bg-transparent text-white flex overflow-hidden relative">
+      {/* Hidden Audio Element */}
+      <audio
+        ref={audioRef}
+        onTimeUpdate={handleAudioTimeUpdate}
+        onLoadedMetadata={handleAudioLoadedMetadata}
+        onEnded={handleAudioEnded}
+        style={{ display: 'none' }}
+      />
+      
+      {/* 3D Background with Avatars */}
+      <ThreeBackground 
+        messageType={currentMessage?.speaker === "Teacher" ? "teacher" : "student"}
+        contentType={currentMessage?.sidebarContent ? "multimedia" : "text"}
+      />
+      
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Fixed Header */}
@@ -2025,8 +2145,33 @@ export default function ConversationPage({ onSpeakerChange }) {
                           <div className="absolute -right-2 bottom-0 text-6xl text-emerald-400/30 font-serif leading-none transform rotate-180">"</div>
                         </blockquote>
                         
-                        {/* Ask Question Button */}
-                        <div className="mt-4 flex justify-end">
+                        {/* Audio Controls and Ask Question Button */}
+                        <div className="mt-4 flex justify-between items-center">
+                          {/* Audio Controls (if audio available) */}
+                          {currentMessage.audioUrl && (
+                            <div className="flex items-center gap-3">
+                              <button
+                                onClick={toggleAudioPlayPause}
+                                className="w-8 h-8 bg-emerald-600 hover:bg-emerald-500 rounded-full flex items-center justify-center transition-colors duration-200"
+                                title={isAudioPlaying ? "Pause audio" : "Play audio"}
+                              >
+                                {isAudioPlaying ? (
+                                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                                  </svg>
+                                ) : (
+                                  <svg className="w-4 h-4 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                  </svg>
+                                )}
+                              </button>
+                              <span className="text-xs text-gray-400">
+                                {formatTime(audioCurrentTime)} / {formatTime(audioDuration)}
+                              </span>
+                            </div>
+                          )}
+                          
+                          {/* Ask Question Button */}
                           <button
                             onClick={() => openAIChatForMessage(currentIndex)}
                             className="group flex items-center gap-2 px-4 py-2 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 hover:border-blue-400/50 text-blue-300 hover:text-blue-200 rounded-lg transition-all duration-200 text-sm font-medium"
@@ -2067,8 +2212,33 @@ export default function ConversationPage({ onSpeakerChange }) {
                           <div className="absolute -right-2 bottom-0 text-6xl text-emerald-400/30 font-serif leading-none transform rotate-180">"</div>
                         </blockquote>
                         
-                        {/* Ask Question Button */}
-                        <div className="mt-4 flex justify-end">
+                        {/* Audio Controls and Ask Question Button */}
+                        <div className="mt-4 flex justify-between items-center">
+                          {/* Audio Controls (if audio available) */}
+                          {currentMessage.audioUrl && (
+                            <div className="flex items-center gap-3">
+                              <button
+                                onClick={toggleAudioPlayPause}
+                                className="w-8 h-8 bg-emerald-600 hover:bg-emerald-500 rounded-full flex items-center justify-center transition-colors duration-200"
+                                title={isAudioPlaying ? "Pause audio" : "Play audio"}
+                              >
+                                {isAudioPlaying ? (
+                                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                                  </svg>
+                                ) : (
+                                  <svg className="w-4 h-4 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                  </svg>
+                                )}
+                              </button>
+                              <span className="text-xs text-gray-400">
+                                {formatTime(audioCurrentTime)} / {formatTime(audioDuration)}
+                              </span>
+                            </div>
+                          )}
+                          
+                          {/* Ask Question Button */}
                           <button
                             onClick={() => openAIChatForMessage(currentIndex)}
                             className="group flex items-center gap-2 px-4 py-2 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 hover:border-blue-400/50 text-blue-300 hover:text-blue-200 rounded-lg transition-all duration-200 text-sm font-medium"

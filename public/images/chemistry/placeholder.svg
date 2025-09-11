@@ -1,0 +1,29 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#f3f4f6"/>
+  <rect x="10" y="10" width="380" height="280" fill="none" stroke="#d1d5db" stroke-width="2" stroke-dasharray="5,5"/>
+  
+  <!-- Chemistry flask icon -->
+  <g transform="translate(150, 80)">
+    <!-- Flask base -->
+    <path d="M30 60 L15 100 L85 100 L70 60 Z" fill="#3b82f6" stroke="#1e40af" stroke-width="2"/>
+    <!-- Flask neck -->
+    <rect x="40" y="40" width="20" height="25" fill="#3b82f6" stroke="#1e40af" stroke-width="2"/>
+    <!-- Flask opening -->
+    <ellipse cx="50" cy="40" rx="12" ry="3" fill="#1e40af"/>
+    <!-- Bubbles -->
+    <circle cx="35" cy="75" r="3" fill="#60a5fa" opacity="0.7"/>
+    <circle cx="55" cy="80" r="2" fill="#60a5fa" opacity="0.7"/>
+    <circle cx="45" cy="85" r="2.5" fill="#60a5fa" opacity="0.7"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="200" y="150" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#374151">
+    Chemistry Image Placeholder
+  </text>
+  <text x="200" y="175" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#6b7280">
+    Replace with your actual chemistry images
+  </text>
+  <text x="200" y="195" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#6b7280">
+    400 x 300 pixels
+  </text>
+</svg>

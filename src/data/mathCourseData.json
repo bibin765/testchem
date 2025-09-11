@@ -15,10 +15,11 @@
             {
               "speaker": "Teacher",
               "text": "Welcome to Algebra! Have you ever wondered why we use letters like x and y in math?",
+              "audioUrl": "/audio/teacher-welcome-algebra.mp3",
               "sidebarContent": [
                 {
                   "type": "image",
-                  "src": "https://images.unsplash.com/photo-1635372722656-389f87a941b7?w=400&h=300&fit=crop",
+                  "src": "/images/math/placeholder.svg",
                   "alt": "Mathematical equations on a blackboard"
                 }
               ]
@@ -31,6 +32,7 @@
             {
               "speaker": "Teacher",
               "text": "Exactly! Algebra is the branch of mathematics that uses symbols (usually letters) to represent numbers and express mathematical relationships.",
+              "audioUrl": "/audio/teacher-algebra-explanation.mp3",
               "sidebarContent": [
                 {
                   "type": "quiz",

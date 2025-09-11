@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Assets - Interactive Worksheet</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        h1 { color: #2563eb; }
+        h2 { color: #059669; border-bottom: 2px solid #d1d5db; padding-bottom: 5px; }
+        .folder { background: #f3f4f6; padding: 15px; margin: 10px 0; border-radius: 8px; }
+        .file { margin: 5px 0; }
+        .file a { text-decoration: none; color: #1d4ed8; }
+        .file a:hover { text-decoration: underline; }
+        .description { color: #6b7280; font-size: 0.9em; margin-left: 20px; }
+        .example { background: #f0f9ff; padding: 10px; border-left: 4px solid #3b82f6; margin: 10px 0; }
+        code { background: #f3f4f6; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <h1>📁 Static Assets Directory</h1>
+    <p>This directory contains all static assets for the interactive worksheet application.</p>
+    
+    <h2>🖼️ Images</h2>
+    <div class="folder">
+        <h3>Chemistry Images</h3>
+        <div class="file">
+            <a href="/images/chemistry/placeholder.svg">placeholder.svg</a>
+            <div class="description">Sample chemistry-themed placeholder image</div>
+        </div>
+        
+        <h3>Math Images</h3>
+        <div class="file">
+            <a href="/images/math/placeholder.svg">placeholder.svg</a>
+            <div class="description">Sample math-themed placeholder image</div>
+        </div>
+        
+        <h3>General Images</h3>
+        <div class="file">
+            <em>Add your general educational images here</em>
+        </div>
+    </div>
+    
+    <h2>📹 Videos</h2>
+    <div class="folder">
+        <div class="file">
+            <em>Add your educational videos here (.mp4, .webm, .mov)</em>
+        </div>
+    </div>
+    
+    <h2>📄 Documents</h2>
+    <div class="folder">
+        <div class="file">
+            <a href="/documents/sample-worksheet.md">sample-worksheet.md</a>
+            <div class="description">Example document structure</div>
+        </div>
+        <div class="file">
+            <em>Add your PDFs, worksheets, and other documents here</em>
+        </div>
+    </div>
+    
+    <h2>🎵 Audio</h2>
+    <div class="folder">
+        <div class="file">
+            <a href="/audio/teacher-welcome-algebra.mp3">teacher-welcome-algebra.mp3</a>
+            <div class="description">Sample teacher voice for algebra introduction</div>
+        </div>
+        <div class="file">
+            <a href="/audio/teacher-algebra-explanation.mp3">teacher-algebra-explanation.mp3</a>
+            <div class="description">Sample teacher voice explaining algebra concepts</div>
+        </div>
+        <div class="file">
+            <em>Add more audio files here (.mp3, .wav, .m4a)</em>
+        </div>
+    </div>
+    
+    <div class="example">
+        <h3>💡 Usage Example in JSON:</h3>
+        <pre><code>{
+  "type": "image",
+  "src": "/images/chemistry/periodic-table.jpg",
+  "alt": "Periodic Table of Elements"
+}</code></pre>
+    </div>
+    
+    <div class="example">
+        <h3>📋 File Organization Tips:</h3>
+        <ul>
+            <li>Use descriptive filenames: <code>atomic-structure-diagram.jpg</code></li>
+            <li>Organize by subject: <code>/images/chemistry/</code>, <code>/images/math/</code></li>
+            <li>Keep files under 2MB for better performance</li>
+            <li>Use web-optimized formats (JPG, PNG, WebP for images)</li>
+        </ul>
+    </div>
+    
+    <p><a href="/">← Back to Interactive Worksheet</a></p>
+</body>
+</html>
